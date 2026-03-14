@@ -49,7 +49,7 @@ Then visit `http://localhost:5500`.
 ## GitHub Pages Deployment (Required Setup)
 
 1. Create a new GitHub repository named:
-   `aryangorde.github.io`
+   `aryangorde8.github.io`
 2. Add all files from this project to that repository root.
 3. Push to `main` branch.
 4. Go to:
@@ -67,7 +67,7 @@ git init
 git add .
 git commit -m "Initial portfolio website"
 git branch -M main
-git remote add origin https://github.com/<your-username>/aryangorde.github.io.git
+git remote add origin https://github.com/<your-username>/aryangorde8.github.io.git
 git push -u origin main
 ```
 
@@ -93,7 +93,7 @@ A records for root domain (`@`):
 CNAME record:
 
 - Host: `www`
-- Value: `aryangorde.github.io`
+- Value: `aryangorde8.github.io`
 
 After DNS propagation, go to GitHub Pages settings and set custom domain to:
 
