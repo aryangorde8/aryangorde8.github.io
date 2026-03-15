@@ -1,1 +1,0 @@
-import{j as e}from"./index-70BMyTDW.js";const c=["C","Python","Machine Learning","Linux","Git","Web Development"],t=()=>e.jsxs("div",{className:"techstack",id:"techstack",children:[e.jsx("h2",{children:"My Tech Stack"}),e.jsx("div",{className:"tech-grid","aria-label":"Skills list",children:c.map(s=>e.jsx("div",{className:"tech-card",children:s},s))})]});export{t as default};
