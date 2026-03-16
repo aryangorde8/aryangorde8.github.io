@@ -1,12 +1,13 @@
 # Aryan Gorde Portfolio Website
 
-A modern, responsive, and lightweight personal portfolio website built with plain HTML, CSS, and JavaScript for GitHub Pages deployment on **aryangorde.com**.
+A modern, responsive personal portfolio website built with React, Three.js, GSAP, and TypeScript, bundled with Vite for GitHub Pages deployment on **aryangorde.com**.
 
 ## Tech Stack
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
+- React + TypeScript
+- Three.js (React Three Fiber, Drei, Rapier)
+- GSAP (animations & ScrollTrigger)
+- Vite (build tool)
 - GitHub Pages (static hosting)
 
 ## Features
