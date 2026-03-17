@@ -2,14 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aryan Gorde | Portfolio</title>
-    <script type="module" crossorigin src="/assets/index-Ce8QDCJp.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor3d-9oZYWl5r.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-BGe2LLG_.css">
+    <meta name="description" content="Aryan Gorde - Creative Developer & Designer Portfolio" />
+    <meta name="theme-color" content="#0b080c" />
+    <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/models/character.enc" as="fetch" crossorigin />
+    <link rel="prefetch" href="/models/char_environment.hdr" />
+    <link rel="prefetch" href="/draco/draco_decoder.wasm" />
+    <script type="module" crossorigin src="/assets/index-Day_fgoI.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor3d-CDSkJVKS.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-DNmc4ToE.css">
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/sw.js").catch(() => {});
+        });
+      }
+    </script>
   </body>
 </html>
