@@ -905,6 +905,7 @@ const R = [
       tools: "Python, Django, DRF, Groq, Chart.js",
       description:
         "A debt-payoff planner with Avalanche and Snowball simulations, interactive charts, and AI-assisted negotiation workflows.",
+      demo: "https://debtclear.aryangorde.com/",
       repo: "https://github.com/aryangorde8/debtclear",
       image: "/images/debtclear.svg",
     },
@@ -914,6 +915,7 @@ const R = [
       tools: "Node.js, JavaScript, Amazon Bedrock, Docker",
       description:
         "Keeps ambiguous farm-input sales on hold until evidence is captured, reviewed, and recorded in an auditable trail.",
+      demo: "https://mittiguard.aryangorde.com/",
       repo: "https://github.com/aryangorde8/mittiguard",
       image: "/images/mittiguard.svg",
     },
