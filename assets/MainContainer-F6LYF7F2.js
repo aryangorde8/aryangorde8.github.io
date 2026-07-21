@@ -311,7 +311,7 @@ const k = () =>
                     children: ["Github ", e.jsx(N, {})],
                   }),
                   e.jsxs("a", {
-                    href: "https://www.linkedin.com/in/aryan-gorde",
+                    href: "https://www.linkedin.com/in/aryan-gorde-6b660a264/",
                     target: "_blank",
                     rel: "noreferrer",
                     "data-cursor": "disable",
@@ -565,7 +565,7 @@ const C = () => (
             }),
             e.jsx("span", {
               children: e.jsx("a", {
-                href: "https://www.linkedin.com/in/aryan-gorde",
+                href: "https://www.linkedin.com/in/aryan-gorde-6b660a264/",
                 target: "_blank",
                 rel: "noreferrer",
                 children: e.jsx(P, {}),
