@@ -1,0 +1,254 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1200 650"
+  role="img"
+  aria-labelledby="title description"
+>
+  <title id="title">MittiGuard Relay project cover</title>
+  <desc id="description">
+    An evidence-first safety workflow illustration for MittiGuard Relay.
+  </desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#102a25" />
+      <stop offset="0.58" stop-color="#163a2a" />
+      <stop offset="1" stop-color="#513a1f" />
+    </linearGradient>
+    <linearGradient id="relay" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9ef3c1" />
+      <stop offset="1" stop-color="#f4ca7d" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="650" rx="28" fill="url(#background)" />
+  <path
+    d="M0 488C202 405 363 540 584 462S955 337 1200 437V650H0Z"
+    fill="#c58a49"
+    opacity=".14"
+  />
+  <path
+    d="M0 536C197 463 350 588 596 503S978 400 1200 485"
+    fill="none"
+    stroke="#dca75f"
+    stroke-opacity=".26"
+    stroke-width="2"
+  />
+  <g opacity=".12" stroke="#dfffe6" stroke-width="1">
+    <path d="M66 108H1130M66 188H1130M66 268H1130M66 348H1130M66 428H1130" />
+    <path
+      d="M160 72V520M320 72V520M480 72V520M640 72V520M800 72V520M960 72V520M1120 72V520"
+    />
+  </g>
+  <g transform="translate(76 82)">
+    <rect
+      width="191"
+      height="34"
+      rx="17"
+      fill="#a7ffbf"
+      fill-opacity=".12"
+      stroke="#a7ffbf"
+      stroke-opacity=".5"
+    />
+    <text
+      x="95"
+      y="23"
+      text-anchor="middle"
+      fill="#c8ffd6"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="700"
+      letter-spacing="1.8"
+    >
+      EVIDENCE FIRST
+    </text>
+    <text
+      y="109"
+      fill="#fff"
+      font-family="Arial, sans-serif"
+      font-size="62"
+      font-weight="800"
+      letter-spacing="-2"
+    >
+      MittiGuard Relay
+    </text>
+    <text y="152" fill="#d6e8d6" font-family="Arial, sans-serif" font-size="23">
+      A safer path for ambiguous farm-input sales.
+    </text>
+  </g>
+  <g transform="translate(76 408)">
+    <rect
+      width="202"
+      height="66"
+      rx="14"
+      fill="#ffffff"
+      fill-opacity=".08"
+      stroke="#fff"
+      stroke-opacity=".19"
+    />
+    <text
+      x="20"
+      y="28"
+      fill="#b9fdd2"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="700"
+      letter-spacing="1.5"
+    >
+      SALE STATE
+    </text>
+    <text
+      x="20"
+      y="53"
+      fill="#fff"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="700"
+    >
+      NOT RELEASED
+    </text>
+  </g>
+  <g transform="translate(305 408)">
+    <rect
+      width="202"
+      height="66"
+      rx="14"
+      fill="#ffffff"
+      fill-opacity=".08"
+      stroke="#fff"
+      stroke-opacity=".19"
+    />
+    <text
+      x="20"
+      y="28"
+      fill="#f5d99e"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="700"
+      letter-spacing="1.5"
+    >
+      AUDIT TRAIL
+    </text>
+    <text
+      x="20"
+      y="53"
+      fill="#fff"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="700"
+    >
+      HUMAN OWNED
+    </text>
+  </g>
+  <g transform="translate(712 171)">
+    <rect
+      width="388"
+      height="312"
+      rx="24"
+      fill="#071713"
+      fill-opacity=".67"
+      stroke="#d6f7dd"
+      stroke-opacity=".25"
+    />
+    <text
+      x="32"
+      y="46"
+      fill="#edfff1"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="700"
+    >
+      EVIDENCE RELAY
+    </text>
+    <text
+      x="32"
+      y="71"
+      fill="#a5c1ac"
+      font-family="Arial, sans-serif"
+      font-size="13"
+    >
+      No unsupported recommendation reaches a sale.
+    </text>
+    <g transform="translate(33 115)">
+      <g fill="#16382b" stroke="#a8f7c1" stroke-opacity=".65">
+        <rect width="98" height="62" rx="12" />
+        <rect x="128" width="98" height="62" rx="12" />
+        <rect x="256" width="98" height="62" rx="12" />
+      </g>
+      <g
+        fill="#dffff0"
+        font-family="Arial, sans-serif"
+        font-size="11"
+        font-weight="700"
+        text-anchor="middle"
+      >
+        <text x="49" y="28">FIELD</text>
+        <text x="49" y="43">CAPTURE</text>
+        <text x="177" y="28">HUMAN</text>
+        <text x="177" y="43">REVIEW</text>
+        <text x="305" y="28">SEALED</text>
+        <text x="305" y="43">RECORD</text>
+      </g>
+      <path
+        d="M101 31H124M229 31H252"
+        stroke="url(#relay)"
+        stroke-width="4"
+        stroke-linecap="round"
+        filter="url(#glow)"
+      />
+      <circle cx="111" cy="31" r="5" fill="#a8f7c1" />
+      <circle cx="239" cy="31" r="5" fill="#f4ca7d" />
+      <rect
+        y="108"
+        width="354"
+        height="42"
+        rx="12"
+        fill="#d5ffc9"
+        fill-opacity=".1"
+        stroke="#d5ffc9"
+        stroke-opacity=".35"
+      />
+      <text
+        x="177"
+        y="135"
+        text-anchor="middle"
+        fill="#e6ffe8"
+        font-family="Arial, sans-serif"
+        font-size="13"
+        font-weight="700"
+        letter-spacing=".8"
+      >
+        EVIDENCE DEBT DETECTED · REVIEW REQUIRED
+      </text>
+    </g>
+  </g>
+  <g transform="translate(788 520)">
+    <circle cx="0" cy="0" r="7" fill="#a8f7c1" filter="url(#glow)" />
+    <text
+      x="18"
+      y="5"
+      fill="#dffff0"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="700"
+    >
+      DETERMINISTIC POLICY
+    </text>
+    <circle cx="205" cy="0" r="7" fill="#f4ca7d" filter="url(#glow)" />
+    <text
+      x="223"
+      y="5"
+      fill="#fff1cd"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="700"
+    >
+      AUDITABLE HANDOFF
+    </text>
+  </g>
+</svg>
