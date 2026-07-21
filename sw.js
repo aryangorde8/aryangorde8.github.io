@@ -1,4 +1,4 @@
-const CACHE_NAME = "portfolio-v1";
+const CACHE_NAME = "portfolio-v2";
 const PRECACHE_URLS = [
   "/",
   "/fonts/geist-latin.woff2",
@@ -26,9 +26,25 @@ self.addEventListener("fetch", (event) => {
   // Skip non-GET and cross-origin
   if (event.request.method !== "GET" || url.origin !== location.origin) return;
 
-  // Cache-first for static assets (fonts, images, JS, CSS, models, draco)
+  // Network-first for JS and CSS. This portfolio keeps some deployed bundle
+  // filenames stable, so cache-first here can otherwise serve an older release.
+  if (url.pathname.startsWith("/assets/")) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          }
+          return response;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // Cache-first for heavier static assets that do not change between releases.
   if (
-    url.pathname.startsWith("/assets/") ||
     url.pathname.startsWith("/fonts/") ||
     url.pathname.startsWith("/images/") ||
     url.pathname.startsWith("/models/") ||
