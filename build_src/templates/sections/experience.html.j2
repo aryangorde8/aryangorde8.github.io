@@ -17,14 +17,19 @@
       {{ m.credit('brutalism, 2018', light=true) }}
     </div>
 
+    <p class="mt-4 text-[15px] leading-relaxed rv" style="max-width:62ch">
+      Final-year computer engineering student. No employment history yet — what follows
+      is shipped, dated work, most recent first.
+    </p>
+
     <div class="mt-6 overflow-x-auto rv" style="border:3px solid #000; background:#fff">
       <table class="exp-table">
-        <caption class="sr-only">Work experience, most recent first</caption>
+        <caption class="sr-only">Dated build timeline, most recent first</caption>
         <thead>
           <tr>
-            <th scope="col" style="width:9rem">Period</th>
-            <th scope="col" style="width:12rem">Role</th>
-            <th scope="col">What I actually did</th>
+            <th scope="col" style="width:8rem">Shipped</th>
+            <th scope="col" style="width:11rem">Build</th>
+            <th scope="col">What it does</th>
           </tr>
         </thead>
         <tbody>
@@ -38,13 +43,14 @@
         </tbody>
       </table>
     </div>
-    <p class="brut-note mt-2 rv" aria-hidden="true">&lt;!-- EDIT: replace rows above with real dates and employers --&gt;</p>
 
     <div class="mt-7 grid gap-6 lg:grid-cols-2">
       <div class="brut card rv" style="background:#fff">
         <h3 style="font-family:var(--mono); font-size:1.5rem; font-weight:700; text-transform:uppercase">Education</h3>
         <p class="mt-3 text-lg font-bold">{{ education.degree }}</p>
-        <p class="mt-1 text-sm">{{ education.status }}</p>
+        <p class="mt-1 text-[15px] font-bold">{{ education.institution }}</p>
+        <p class="mt-1 text-sm">{{ education.affiliation }}</p>
+        <p class="mt-1 text-sm" style="font-family:var(--mono)">{{ education.status }}</p>
         <p class="mt-3 text-[15px] leading-relaxed">{{ education.detail }}</p>
       </div>
 
@@ -58,6 +64,19 @@
         <a class="mt-6 inline-block" style="border:3px solid #000; background:#fff; color:#000; padding:.7rem 1.1rem; font-family:var(--mono); font-weight:700; text-decoration:none"
            href="{{ site.resume }}">[ DOWNLOAD RÉSUMÉ.PDF ]</a>
       </div>
+    </div>
+
+    <div class="brut card mt-6 rv" style="background:#fff">
+      <h3 style="font-family:var(--mono); font-size:1.5rem; font-weight:700; text-transform:uppercase">Certifications</h3>
+      <ul class="mt-4 list-none p-0 m-0" style="font-size:.9375rem">
+        {%- for name, issuer, date in certifications %}
+        <li class="flex flex-wrap items-start justify-between gap-3"
+            style="padding:.6rem 0{% if not loop.last %}; border-bottom:2px solid #000{% endif %}">
+          <span><strong>{{ name }}</strong><br /><span class="text-sm">{{ issuer }}</span></span>
+          <span class="text-sm" style="font-family:var(--mono); white-space:nowrap">{{ date }}</span>
+        </li>
+        {%- endfor %}
+      </ul>
     </div>
 
     <p class="brut-note mt-8 rv" aria-hidden="true">&lt;!-- /section --&gt;</p>

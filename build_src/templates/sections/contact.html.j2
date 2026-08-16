@@ -36,7 +36,7 @@
           <p class="mt-4 text-[16px] leading-relaxed">{{ contact.body }}</p>
           <div class="mt-6 flex flex-wrap gap-4">
             {{ m.btn(site.email, 'mailto:' ~ site.email, 'lime') }}
-            <button type="button" class="btn btn--cyan" id="copy-email">Copy address</button>
+            <button type="button" class="btn btn--cyan" id="copy-email" data-email="{{ site.email }}">Copy address</button>
           </div>
           <p id="copy-status" class="mt-3 text-sm font-bold" style="color:var(--lime)" role="status" aria-live="polite"></p>
         </div>

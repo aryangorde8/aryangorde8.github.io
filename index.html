@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Aryan Gorde — Backend & Full-Stack Developer</title>
-<meta name="description" content="Aryan Gorde — backend and full-stack developer. Django, FastAPI, and the infrastructure that keeps them up. Builder of DebtClear, Mnemos, and MittiGuard." />
+<meta name="description" content="Aryan Gorde — backend and full-stack developer. Django, FastAPI, and the infrastructure that keeps them up. Builder of DebtClear and Mnemos." />
 <meta name="theme-color" content="#ffe500" />
 <meta name="color-scheme" content="only light" />
 <link rel="canonical" href="https://aryangorde.com/" />
@@ -30,7 +30,7 @@
 
   Then run:  python3 build.py
 
-  9 sections · zero external dependencies (CSS and JS
+  8 sections · zero external dependencies (CSS and JS
   are inlined below; no CDN, no fonts, no runtime).
 
   This output is deterministic: same sources in, byte-identical file out. No
@@ -678,7 +678,7 @@ html[data-motion="full"] .liquid.is-live::after { animation: sheen 6.5s ease-in-
   <a class="nav-brand" href="#top">AG<span style="color:var(--pink)">.</span></a>
 
   <div class="nav-scroll">
-    <ul class="nav-list">      <li><a class="nav-link" href="#about" data-nav="about">About</a></li>      <li><a class="nav-link" href="#stack" data-nav="stack">Stack</a></li>      <li><a class="nav-link" href="#debtclear" data-nav="debtclear">DebtClear</a></li>      <li><a class="nav-link" href="#projects" data-nav="projects">Projects</a></li>      <li><a class="nav-link" href="#labs" data-nav="labs">Labs</a></li>      <li><a class="nav-link" href="#experience" data-nav="experience">Experience</a></li>      <li><a class="nav-link" href="#stats" data-nav="stats">Stats</a></li>      <li><a class="nav-link" href="#contact" data-nav="contact">Contact</a></li>    </ul>
+    <ul class="nav-list">      <li><a class="nav-link" href="#about" data-nav="about">About</a></li>      <li><a class="nav-link" href="#stack" data-nav="stack">Stack</a></li>      <li><a class="nav-link" href="#debtclear" data-nav="debtclear">DebtClear</a></li>      <li><a class="nav-link" href="#projects" data-nav="projects">Projects</a></li>      <li><a class="nav-link" href="#experience" data-nav="experience">Experience</a></li>      <li><a class="nav-link" href="#stats" data-nav="stats">Stats</a></li>      <li><a class="nav-link" href="#contact" data-nav="contact">Contact</a></li>    </ul>
   </div>
 
   <button type="button" class="motion-btn" data-motion-toggle aria-pressed="false">Reduce motion</button>
@@ -869,29 +869,14 @@ loading="lazy" decoding="async" />
   <span class="sticker anim-wobble">all deployed</span>
 </div>
 
-    <div class="mt-8 grid gap-7 lg:grid-cols-3">      <article class="plate card rv kinetic flex flex-col">
+    <div class="mt-8 grid gap-7">      <article class="plate card rv kinetic flex flex-col">
         <span class="sticker sticker--lime self-start">AI agent</span>
         <h3 class="display mt-4" style="font-size:2.5rem; color:var(--yellow)">Mnemos</h3>
-        <p class="mt-3 text-[15px] leading-relaxed flex-1">An approval-gated assistant that pairs hybrid retrieval with a graph of prior context, cites every claim back to a source, and won't touch Gmail or Calendar until a human clicks approve.</p>
-        <p class="mt-4 text-xs font-bold tracking-widest uppercase" style="color:var(--cyan)">Python · FastAPI · MongoDB Atlas · Bedrock</p>
+        <p class="mt-3 text-[15px] leading-relaxed flex-1">Memory and retrieval across Gmail, Calendar, and documents. Vector search and BM25 are fused with Reciprocal Rank Fusion and reranked by Gemini 3 Pro, then a critic sub-agent audits the answer against the chunks it cited — so a claim with no source behind it never reaches you.</p>
+        <p class="mt-4 text-xs font-bold tracking-widest uppercase" style="color:var(--cyan)">TypeScript · Express 5 · MongoDB Atlas · Vertex AI · Cloud Run</p>
         <div class="mt-5 flex flex-wrap gap-3">          <a class="btn btn--cyan"
 style="font-size:.95rem; padding:.6rem 1rem"   href="https://mnemos.aryangorde.com" rel="noopener" aria-label="Mnemos live demo">Live ↗</a>          <a class="btn btn--lime"
 style="font-size:.95rem; padding:.6rem 1rem"   href="https://github.com/aryangorde8/Mnemos" rel="noopener" aria-label="Mnemos source on GitHub">Source ↗</a>        </div>
-      </article>      <article class="plate-w card rv kinetic flex flex-col">
-        <span class="sticker sticker--violet self-start">Safety workflow</span>
-        <h3 class="display mt-4" style="font-size:2.5rem">MittiGuard</h3>
-        <p class="mt-3 text-[15px] leading-relaxed flex-1">Holds ambiguous farm-input sales pending until evidence is captured, reviewed, and written to an auditable trail. The real problem was making "wait" the cheap default and "approve" the deliberate act.</p>
-        <p class="mt-4 text-xs font-bold tracking-widest uppercase">Node.js · JavaScript · Bedrock · Docker</p>
-        <div class="mt-5 flex flex-wrap gap-3">          <a class="btn btn--pink"
-style="font-size:.95rem; padding:.6rem 1rem"   href="https://mittiguard.aryangorde.com/" rel="noopener" aria-label="MittiGuard live demo">Live ↗</a>          <a class="btn"
-style="font-size:.95rem; padding:.6rem 1rem"   href="https://github.com/aryangorde8/mittiguard" rel="noopener" aria-label="MittiGuard source on GitHub">Source ↗</a>        </div>
-      </article>      <article class="plate-pink card rv kinetic flex flex-col">
-        <span class="sticker sticker--cyan self-start">Personal finance</span>
-        <h3 class="display mt-4" style="font-size:2.5rem">Fintrack</h3>
-        <p class="mt-3 text-[15px] leading-relaxed flex-1">Expense tracking with category rules, recurring-transaction detection, and monthly rollups. Built to stop me rewriting the same spreadsheet formula every January.</p>
-        <p class="mt-4 text-xs font-bold tracking-widest uppercase">Python · Django · PostgreSQL · Chart.js</p>
-        <div class="mt-5 flex flex-wrap gap-3">          <a class="btn btn--cyan"
-style="font-size:.95rem; padding:.6rem 1rem"   href="https://github.com/aryangorde8" rel="noopener" aria-label="Fintrack source on GitHub">Source ↗</a>        </div>
       </article>    </div>
   </div>
 </section>
@@ -899,49 +884,6 @@ style="font-size:.95rem; padding:.6rem 1rem"   href="https://github.com/aryangor
 <div class="marquee marquee--cyan marquee--fast" aria-hidden="true">
   <div class="marquee-track"><span>2am commits ✱</span><span>no roadmap ✱</span><span>scope creep ✱</span><span>works on my machine ✱</span><span>ship it ✱</span><span>2am commits ✱</span><span>no roadmap ✱</span><span>scope creep ✱</span><span>works on my machine ✱</span><span>ship it ✱</span>  </div>
 </div>
-<section id="labs" class="lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="labs-title">
-  <span class="ghost-word" style="left:-4%; top:10%;" aria-hidden="true">LABS</span>
-
-  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
-    <div class="sec-head rv">
-  <h2 id="labs-title" class="sec-title">Labs</h2>
-  <span class="sticker sticker--violet anim-wobble">weekend damage</span>
-</div>
-
-    <div class="mt-8 grid gap-6 md:grid-cols-2">      <article class="plate-w card rv kinetic">
-        <div class="flex flex-wrap items-start justify-between gap-3">
-          <h3 class="display" style="font-size:2rem">DevSync</h3>
-          <span class="sticker sticker--cyan">CLI</span>
-        </div>
-        <p class="mt-3 text-[15px] leading-relaxed">One command to pull every repo I have open, stash what's dirty, and print a single table of what's behind. Replaced a shell alias that had grown to nine lines.</p>
-        <p class="mt-3 text-xs font-bold tracking-widest uppercase">Python · Click · GitPython</p>
-      </article>      <article class="plate card rv kinetic">
-        <div class="flex flex-wrap items-start justify-between gap-3">
-          <h3 class="display" style="font-size:2rem; color:var(--yellow)">pg-slowlog</h3>
-          <span class="sticker sticker--lime">Tooling</span>
-        </div>
-        <p class="mt-3 text-[15px] leading-relaxed">Tails Postgres slow-query logs and groups them by normalised shape, so you find the query fired 4,000 times instead of the one that took 4 seconds once.</p>
-        <p class="mt-3 text-xs font-bold tracking-widest uppercase" style="color:var(--cyan)">Python · psycopg · Rich</p>
-      </article>      <article class="plate-lime card rv kinetic">
-        <div class="flex flex-wrap items-start justify-between gap-3">
-          <h3 class="display" style="font-size:2rem">Hotel Ledger</h3>
-          <span class="sticker">Coursework</span>
-        </div>
-        <p class="mt-3 text-[15px] leading-relaxed">A hotel management system from a systems module that I kept refactoring long after it was graded. Room allocation is a bin-packing problem and I refuse to let it go.</p>
-        <p class="mt-3 text-xs font-bold tracking-widest uppercase">Django · PostgreSQL</p>
-      </article>      <article class="plate-violet card rv kinetic">
-        <div class="flex flex-wrap items-start justify-between gap-3">
-          <h3 class="display" style="font-size:2rem">NLP Scratchpad</h3>
-          <span class="sticker sticker--cyan">Notebooks</span>
-        </div>
-        <p class="mt-3 text-[15px] leading-relaxed">Tokenisers, TF-IDF baselines, and a classifier that beat a fine-tuned model on a small dataset — the useful reminder that lives in every ML assignment.</p>
-        <p class="mt-3 text-xs font-bold tracking-widest uppercase">Python · scikit-learn · pandas</p>
-      </article>    </div>
-
-    <div class="mt-8 rv"><a class="btn btn--pink"
-   href="https://github.com/aryangorde8" rel="noopener">All of it on GitHub ↗</a></div>
-  </div>
-</section>
 
 <hr class="rule" />
 <section id="experience" class="brut lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="experience-title"
@@ -954,47 +896,82 @@ style="font-size:.95rem; padding:.6rem 1rem"   href="https://github.com/aryangor
       <span class="credit credit--light">brutalism, 2018</span>
     </div>
 
+    <p class="mt-4 text-[15px] leading-relaxed rv" style="max-width:62ch">
+      Final-year computer engineering student. No employment history yet — what follows
+      is shipped, dated work, most recent first.
+    </p>
+
     <div class="mt-6 overflow-x-auto rv" style="border:3px solid #000; background:#fff">
       <table class="exp-table">
-        <caption class="sr-only">Work experience, most recent first</caption>
+        <caption class="sr-only">Dated build timeline, most recent first</caption>
         <thead>
           <tr>
-            <th scope="col" style="width:9rem">Period</th>
-            <th scope="col" style="width:12rem">Role</th>
-            <th scope="col">What I actually did</th>
+            <th scope="col" style="width:8rem">Shipped</th>
+            <th scope="col" style="width:11rem">Build</th>
+            <th scope="col">What it does</th>
           </tr>
         </thead>
         <tbody>          <tr>
-            <th scope="row" style="background:#fff; font-family:var(--mono); font-size:.85rem">2025 — now</th>
-            <td class="display" style="font-size:1.15rem">Independent Backend Developer</td>
-            <td>Designed, built, and deployed DebtClear end to end — data model, amortisation engine, REST API, AI advisory layer, and the EC2 + GitHub Actions pipeline that ships it.</td>
+            <th scope="row" style="background:#fff; font-family:var(--mono); font-size:.85rem">May 2026</th>
+            <td class="display" style="font-size:1.15rem">Mnemos</td>
+            <td>Production AI memory agent for retrieval across Gmail, Calendar, and documents. Hybrid pipeline merging MongoDB Vector Search and BM25 via Reciprocal Rank Fusion, reranked with Gemini 3 Pro, plus a critic sub-agent that audits every response against its cited chunks to catch hallucinations. Deployed on Cloud Run with SSE streaming.</td>
           </tr>          <tr>
-            <th scope="row" style="font-family:var(--mono); font-size:.85rem">2025</th>
-            <td class="display" style="font-size:1.15rem">Hackathon Builds</td>
-            <td>Mnemos and MittiGuard — both agentic systems where the interesting constraint was refusing to act without evidence or human approval.</td>
+            <th scope="row" style="font-family:var(--mono); font-size:.85rem">Mar. 2026</th>
+            <td class="display" style="font-size:1.15rem">TicketForge</td>
+            <td>Automation pipeline that ingests raw meeting transcripts and generates structured Linear tickets through a multi-stage Groq prompt chain, extracting tasks, assignees, deadlines, and priorities from unstructured text. Devpost hackathon entry.</td>
           </tr>          <tr>
-            <th scope="row" style="background:#fff; font-family:var(--mono); font-size:.85rem">2024 — 2025</th>
-            <td class="display" style="font-size:1.15rem">Academic Projects</td>
-            <td>Hotel management systems, machine-learning experiments, and NLP assignments, documented as if someone else would have to maintain them.</td>
+            <th scope="row" style="background:#fff; font-family:var(--mono); font-size:.85rem">Feb. 2026</th>
+            <td class="display" style="font-size:1.15rem">DebtClear</td>
+            <td>LLM-powered debt resolution platform with a Negotiate Mode that generates personalised negotiation scripts from a user's debt profile. Django REST on EC2, Dockerised, GitHub Actions CI/CD, Groq (Llama 3) with SSE streaming. Sole developer, production-ready in under 72 hours for Hack the Pulse 2026.</td>
+          </tr>          <tr>
+            <th scope="row" style="font-family:var(--mono); font-size:.85rem">Jan. 2026</th>
+            <td class="display" style="font-size:1.15rem">DevSync</td>
+            <td>Full-stack developer portfolio platform — 12+ REST modules, Dockerised with PostgreSQL 16, Redis 7, Celery and Nginx. Local-LLM assistant on Ollama with a ChromaDB RAG pipeline and no external API keys. Jenkins CI/CD with linting, Safety and Trivy scans, and 35+ tests.</td>
           </tr>        </tbody>
       </table>
     </div>
-    <p class="brut-note mt-2 rv" aria-hidden="true">&lt;!-- EDIT: replace rows above with real dates and employers --&gt;</p>
 
     <div class="mt-7 grid gap-6 lg:grid-cols-2">
       <div class="brut card rv" style="background:#fff">
         <h3 style="font-family:var(--mono); font-size:1.5rem; font-weight:700; text-transform:uppercase">Education</h3>
-        <p class="mt-3 text-lg font-bold">B.E. Computer Engineering</p>
-        <p class="mt-1 text-sm">In progress</p>
-        <p class="mt-3 text-[15px] leading-relaxed">Computer-science fundamentals with a practical bias: data structures, operating systems, databases, and machine learning, applied to things that get deployed.</p>
+        <p class="mt-3 text-lg font-bold">B.Tech, Computer Engineering</p>
+        <p class="mt-1 text-[15px] font-bold">Sardar Patel Institute of Technology</p>
+        <p class="mt-1 text-sm">Mumbai University · Mumbai, India</p>
+        <p class="mt-1 text-sm" style="font-family:var(--mono)">Aug. 2023 – June 2027</p>
+        <p class="mt-3 text-[15px] leading-relaxed">Computer-science fundamentals with a practical bias: data structures, operating systems, databases, and machine learning, applied to things that actually get deployed.</p>
       </div>
 
       <div class="brut card rv" style="background:#fff">
         <h3 style="font-family:var(--mono); font-size:1.5rem; font-weight:700; text-transform:uppercase">Core skills</h3>
-        <ul class="mt-3 text-[15px] leading-relaxed space-y-2 list-none p-0 m-0">          <li><span aria-hidden="true">&gt; </span>Backend architecture — Django, DRF, FastAPI</li>          <li><span aria-hidden="true">&gt; </span>Relational data modelling and query tuning</li>          <li><span aria-hidden="true">&gt; </span>CI/CD and deployment — Actions, Docker, EC2</li>          <li><span aria-hidden="true">&gt; </span>LLM integration with hard correctness boundaries</li>          <li><span aria-hidden="true">&gt; </span>Writing docs a stranger can follow</li>        </ul>
+        <ul class="mt-3 text-[15px] leading-relaxed space-y-2 list-none p-0 m-0">          <li><span aria-hidden="true">&gt; </span>Languages — Python, JavaScript, TypeScript, SQL, HTML/CSS, C</li>          <li><span aria-hidden="true">&gt; </span>Frameworks — Django, DRF, Next.js, React, Express.js, Tailwind</li>          <li><span aria-hidden="true">&gt; </span>DevOps &amp; cloud — Docker, AWS EC2, Cloud Run, Jenkins, Actions, Nginx</li>          <li><span aria-hidden="true">&gt; </span>Databases — PostgreSQL, MongoDB Atlas (Vector Search, BM25), ChromaDB</li>          <li><span aria-hidden="true">&gt; </span>AI — Groq, Vertex AI (Gemini), Ollama, sentence-transformers, ReAct agents</li>        </ul>
         <a class="mt-6 inline-block" style="border:3px solid #000; background:#fff; color:#000; padding:.7rem 1.1rem; font-family:var(--mono); font-weight:700; text-decoration:none"
            href="/Aryan_Gorde_Resume.pdf">[ DOWNLOAD RÉSUMÉ.PDF ]</a>
       </div>
+    </div>
+
+    <div class="brut card mt-6 rv" style="background:#fff">
+      <h3 style="font-family:var(--mono); font-size:1.5rem; font-weight:700; text-transform:uppercase">Certifications</h3>
+      <ul class="mt-4 list-none p-0 m-0" style="font-size:.9375rem">        <li class="flex flex-wrap items-start justify-between gap-3"
+            style="padding:.6rem 0; border-bottom:2px solid #000">
+          <span><strong>Meta Back-End Developer Professional Certificate</strong><br /><span class="text-sm">Meta · Coursera</span></span>
+          <span class="text-sm" style="font-family:var(--mono); white-space:nowrap">Dec 2025</span>
+        </li>        <li class="flex flex-wrap items-start justify-between gap-3"
+            style="padding:.6rem 0; border-bottom:2px solid #000">
+          <span><strong>CI/CD: Continuous Integration and Continuous Delivery</strong><br /><span class="text-sm">IBM · Coursera</span></span>
+          <span class="text-sm" style="font-family:var(--mono); white-space:nowrap">Jan 2026</span>
+        </li>        <li class="flex flex-wrap items-start justify-between gap-3"
+            style="padding:.6rem 0; border-bottom:2px solid #000">
+          <span><strong>AWS Cloud Technical Essentials</strong><br /><span class="text-sm">Amazon Web Services · Coursera</span></span>
+          <span class="text-sm" style="font-family:var(--mono); white-space:nowrap">Jan 2026</span>
+        </li>        <li class="flex flex-wrap items-start justify-between gap-3"
+            style="padding:.6rem 0; border-bottom:2px solid #000">
+          <span><strong>Docker for Beginners</strong><br /><span class="text-sm">KodeKloud</span></span>
+          <span class="text-sm" style="font-family:var(--mono); white-space:nowrap">Jan 2026</span>
+        </li>        <li class="flex flex-wrap items-start justify-between gap-3"
+            style="padding:.6rem 0">
+          <span><strong>Kubernetes for Absolute Beginners</strong><br /><span class="text-sm">KodeKloud</span></span>
+          <span class="text-sm" style="font-family:var(--mono); white-space:nowrap">Jan 2026</span>
+        </li>      </ul>
     </div>
 
     <p class="brut-note mt-8 rv" aria-hidden="true">&lt;!-- /section --&gt;</p>
@@ -1018,14 +995,14 @@ style="font-size:.95rem; padding:.6rem 1rem"   href="https://github.com/aryangor
         <a class="mt-4 inline-flex w-fit items-center gap-2"
            style="background:#000; color:var(--cyan); border:3px solid #000; padding:.55rem .9rem; font-family:var(--mono); font-weight:800; font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; text-decoration:none"
            href="https://debtclear.aryangorde.com/" rel="noopener">Open it &#8599;</a>
-      </div>      <div class="plate-pink card kinetic">        <p class="stat-num"           data-count="3">3</p>
-        <p class="eyebrow mt-2">Deployed projects</p>      </div>      <div class="plate-lime card kinetic">        <p class="stat-num"           data-count="4" data-suffix="+">4+</p>
+      </div>      <div class="plate-pink card kinetic">        <p class="stat-num"           data-count="4">4</p>
+        <p class="eyebrow mt-2">Builds shipped in 2026</p>      </div>      <div class="plate-lime card kinetic">        <p class="stat-num"           data-count="3" data-suffix="+">3+</p>
         <p class="eyebrow mt-2">Years on Python</p>      </div>      <div class="plate-violet card kinetic" style="grid-column:span 2">        <p class="eyebrow">Automated deploys</p>
         <div class="flex items-end justify-between gap-4">
           <p class="stat-num mt-1"             data-count="100" data-suffix="%">100%</p>
           <p class="text-sm font-bold" style="max-width:16rem; text-align:right">automated — push to main, tests, ship</p>
         </div>      </div>      <div class="plate-w card kinetic">        <p class="stat-num"           data-count="1">1</p>
-        <p class="eyebrow mt-2">HTML file, zero builds</p>      </div>      <div class="plate card kinetic" style="grid-column:span 2">        <p class="eyebrow" style="color:var(--cyan)">Design eras borrowed from</p>
+        <p class="eyebrow mt-2">HTML file, zero requests</p>      </div>      <div class="plate card kinetic" style="grid-column:span 2">        <p class="eyebrow" style="color:var(--cyan)">Design eras borrowed from</p>
         <div class="flex items-end justify-between gap-4">
           <p class="stat-num mt-1" style="color:var(--yellow)"             data-count="9">9</p>
           <p class="text-sm font-bold" style="max-width:16rem; text-align:right">one device each, dropped into a maximalist house style</p>
@@ -1076,8 +1053,8 @@ loading="lazy" decoding="async" />
           <p class="mt-4 text-[16px] leading-relaxed">I'm after backend or full-stack work where the hard part is the system design, the data model, or keeping a deploy boring. If that's what you've got, I'd like to hear about it. Fastest route is email — I reply to everything that isn't a recruiter template.</p>
           <div class="mt-6 flex flex-wrap gap-4">
             <a class="btn btn--lime"
-   href="mailto:aryangorde8@gmail.com">aryangorde8@gmail.com</a>
-            <button type="button" class="btn btn--cyan" id="copy-email">Copy address</button>
+   href="mailto:aryangorde6@gmail.com">aryangorde6@gmail.com</a>
+            <button type="button" class="btn btn--cyan" id="copy-email" data-email="aryangorde6@gmail.com">Copy address</button>
           </div>
           <p id="copy-status" class="mt-3 text-sm font-bold" style="color:var(--lime)" role="status" aria-live="polite"></p>
         </div>
@@ -1118,7 +1095,7 @@ skeuomorphism, neomorphism, glassmorphism, claymorphism, minimalism, brutalism, 
 
     <p class="mt-5 text-sm">
       © <span id="year">2026</span> ·
-      <a href="mailto:aryangorde8@gmail.com">Email</a> ·
+      <a href="mailto:aryangorde6@gmail.com">Email</a> ·
       <a href="https://github.com/aryangorde8" rel="noopener">GitHub</a> ·
       <a href="https://www.linkedin.com/in/aryan-gorde-6b660a264/" rel="noopener">LinkedIn</a>
     </p>
@@ -1321,11 +1298,15 @@ skeuomorphism, neomorphism, glassmorphism, claymorphism, minimalism, brutalism, 
   var copyBtn = document.getElementById("copy-email");
   var copyStatus = document.getElementById("copy-status");
   if (copyBtn && navigator.clipboard) {
+    /* The address comes from the button's data-email, which the build fills
+       from content.py. Hardcoding it here once meant two copies to keep in
+       sync, and they drifted. */
+    var addr = copyBtn.getAttribute("data-email") || "";
     copyBtn.addEventListener("click", function () {
-      navigator.clipboard.writeText("aryangorde8@gmail.com").then(function () {
+      navigator.clipboard.writeText(addr).then(function () {
         if (copyStatus) copyStatus.textContent = "Copied to clipboard.";
       }).catch(function () {
-        if (copyStatus) copyStatus.textContent = "Couldn't copy — it's aryangorde8@gmail.com";
+        if (copyStatus) copyStatus.textContent = "Couldn't copy — it's " + addr;
       });
     });
   } else if (copyBtn) {

@@ -194,11 +194,15 @@
   var copyBtn = document.getElementById("copy-email");
   var copyStatus = document.getElementById("copy-status");
   if (copyBtn && navigator.clipboard) {
+    /* The address comes from the button's data-email, which the build fills
+       from content.py. Hardcoding it here once meant two copies to keep in
+       sync, and they drifted. */
+    var addr = copyBtn.getAttribute("data-email") || "";
     copyBtn.addEventListener("click", function () {
-      navigator.clipboard.writeText("aryangorde8@gmail.com").then(function () {
+      navigator.clipboard.writeText(addr).then(function () {
         if (copyStatus) copyStatus.textContent = "Copied to clipboard.";
       }).catch(function () {
-        if (copyStatus) copyStatus.textContent = "Couldn't copy — it's aryangorde8@gmail.com";
+        if (copyStatus) copyStatus.textContent = "Couldn't copy — it's " + addr;
       });
     });
   } else if (copyBtn) {
