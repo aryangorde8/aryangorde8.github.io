@@ -5,7 +5,9 @@
   <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
     {{ m.sec_head('projects', 'Projects', m.sticker('all deployed', 'pink', 'anim-wobble')) }}
 
-    <div class="mt-8 grid gap-7 lg:grid-cols-3">
+    {# One project goes full width rather than sitting in a half-empty row;
+       two or more split into columns. The grid follows the content. #}
+    <div class="mt-8 grid gap-7{% if projects|length > 1 %} md:grid-cols-2{% endif %}">
       {%- for p in projects %}
       {%- set dark = p.accent in m.DARK %}
       {%- set head = m.HEAD_INK.get(p.accent) %}
@@ -26,4 +28,6 @@
   </div>
 </section>
 
-{{ m.marquee(marquees.labs, 'marquee--cyan marquee--fast') }}
+{{ m.marquee(marquees.projects, 'marquee--cyan marquee--fast') }}
+
+<hr class="rule" />

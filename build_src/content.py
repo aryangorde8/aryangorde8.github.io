@@ -17,7 +17,7 @@ SITE = {
     "name": "Aryan Gorde",
     "role": "Backend & full-stack developer",
     "domain": "https://aryangorde.com",
-    "email": "aryangorde8@gmail.com",
+    "email": "aryangorde6@gmail.com",
     "github": "https://github.com/aryangorde8",
     "github_handle": "aryangorde8",
     "linkedin": "https://www.linkedin.com/in/aryan-gorde-6b660a264/",
@@ -25,7 +25,7 @@ SITE = {
     "title": "Aryan Gorde — Backend & Full-Stack Developer",
     "description": (
         "Aryan Gorde — backend and full-stack developer. Django, FastAPI, and the "
-        "infrastructure that keeps them up. Builder of DebtClear, Mnemos, and MittiGuard."
+        "infrastructure that keeps them up. Builder of DebtClear and Mnemos."
     ),
     "og_description": (
         "Django, FastAPI, and the infrastructure underneath. Loud portfolio, quiet deploys."
@@ -42,7 +42,6 @@ NAV = [
     ("stack",      "Stack"),
     ("debtclear",  "DebtClear"),
     ("projects",   "Projects"),
-    ("labs",       "Labs"),
     ("experience", "Experience"),
     ("stats",      "Stats"),
     ("contact",    "Contact"),
@@ -165,6 +164,12 @@ FEATURED = {
 }
 
 # --- projects ---------------------------------------------------------------
+# DebtClear gets its own full-bleed section above; everything else lives here.
+# The grid adapts to the length of this list — one card goes full width, two or
+# more go side by side — so adding a project is appending a dict, nothing else.
+#
+# Every claim here has to be traceable to the résumé or the live app. If you
+# can't point at where a line came from, don't add it.
 
 PROJECTS = [
     {
@@ -173,11 +178,12 @@ PROJECTS = [
         "tag_accent": "lime",
         "accent": "black",
         "blurb": (
-            "An approval-gated assistant that pairs hybrid retrieval with a graph of prior "
-            "context, cites every claim back to a source, and won't touch Gmail or "
-            "Calendar until a human clicks approve."
+            "Memory and retrieval across Gmail, Calendar, and documents. Vector search and "
+            "BM25 are fused with Reciprocal Rank Fusion and reranked by Gemini 3 Pro, then "
+            "a critic sub-agent audits the answer against the chunks it cited — so a claim "
+            "with no source behind it never reaches you."
         ),
-        "tech": "Python · FastAPI · MongoDB Atlas · Bedrock",
+        "tech": "TypeScript · Express 5 · MongoDB Atlas · Vertex AI · Cloud Run",
         "links": [
             {"label": "Live",   "href": "https://mnemos.aryangorde.com",
              "aria": "Mnemos live demo", "accent": "cyan"},
@@ -185,104 +191,72 @@ PROJECTS = [
              "aria": "Mnemos source on GitHub", "accent": "lime"},
         ],
     },
-    {
-        "name": "MittiGuard",
-        "tag": "Safety workflow",
-        "tag_accent": "violet",
-        "accent": "white",
-        "blurb": (
-            "Holds ambiguous farm-input sales pending until evidence is captured, "
-            "reviewed, and written to an auditable trail. The real problem was making "
-            "\"wait\" the cheap default and \"approve\" the deliberate act."
-        ),
-        "tech": "Node.js · JavaScript · Bedrock · Docker",
-        "links": [
-            {"label": "Live",   "href": "https://mittiguard.aryangorde.com/",
-             "aria": "MittiGuard live demo", "accent": "pink"},
-            {"label": "Source", "href": "https://github.com/aryangorde8/mittiguard",
-             "aria": "MittiGuard source on GitHub", "accent": "black"},
-        ],
-    },
-    {
-        "name": "Fintrack",
-        "tag": "Personal finance",
-        "tag_accent": "cyan",
-        "accent": "pink",
-        "blurb": (
-            "Expense tracking with category rules, recurring-transaction detection, and "
-            "monthly rollups. Built to stop me rewriting the same spreadsheet formula "
-            "every January."
-        ),
-        "tech": "Python · Django · PostgreSQL · Chart.js",
-        "links": [
-            {"label": "Source", "href": "https://github.com/aryangorde8",
-             "aria": "Fintrack source on GitHub", "accent": "cyan"},
-        ],
-    },
-]
-
-# --- labs -------------------------------------------------------------------
-
-LABS = [
-    {"name": "DevSync", "tag": "CLI", "tag_accent": "cyan", "accent": "white",
-     "blurb": "One command to pull every repo I have open, stash what's dirty, and print "
-              "a single table of what's behind. Replaced a shell alias that had grown to "
-              "nine lines.",
-     "tech": "Python · Click · GitPython"},
-
-    {"name": "pg-slowlog", "tag": "Tooling", "tag_accent": "lime", "accent": "black",
-     "blurb": "Tails Postgres slow-query logs and groups them by normalised shape, so you "
-              "find the query fired 4,000 times instead of the one that took 4 seconds "
-              "once.",
-     "tech": "Python · psycopg · Rich"},
-
-    {"name": "Hotel Ledger", "tag": "Coursework", "tag_accent": "pink", "accent": "lime",
-     "blurb": "A hotel management system from a systems module that I kept refactoring "
-              "long after it was graded. Room allocation is a bin-packing problem and I "
-              "refuse to let it go.",
-     "tech": "Django · PostgreSQL"},
-
-    {"name": "NLP Scratchpad", "tag": "Notebooks", "tag_accent": "cyan", "accent": "violet",
-     "blurb": "Tokenisers, TF-IDF baselines, and a classifier that beat a fine-tuned model "
-              "on a small dataset — the useful reminder that lives in every ML assignment.",
-     "tech": "Python · scikit-learn · pandas"},
 ]
 
 # --- experience (rendered in the borrowed brutalism treatment) --------------
-# EDIT: replace with real dates and employers.
+# Sourced from Aryan_Gorde_Resume.pdf. NOTE: the résumé lists no employment —
+# it is Education / Projects / Skills / Certifications. So this is a dated
+# timeline of real shipped work, not a job history. Do not add invented roles.
 
 EXPERIENCE = [
-    {"period": "2025 — now", "role": "Independent Backend Developer",
-     "detail": "Designed, built, and deployed DebtClear end to end — data model, "
-               "amortisation engine, REST API, AI advisory layer, and the EC2 + GitHub "
-               "Actions pipeline that ships it."},
-    {"period": "2025", "role": "Hackathon Builds",
-     "detail": "Mnemos and MittiGuard — both agentic systems where the interesting "
-               "constraint was refusing to act without evidence or human approval."},
-    {"period": "2024 — 2025", "role": "Academic Projects",
-     "detail": "Hotel management systems, machine-learning experiments, and NLP "
-               "assignments, documented as if someone else would have to maintain them."},
+    {"period": "May 2026", "role": "Mnemos",
+     "detail": "Production AI memory agent for retrieval across Gmail, Calendar, and "
+               "documents. Hybrid pipeline merging MongoDB Vector Search and BM25 via "
+               "Reciprocal Rank Fusion, reranked with Gemini 3 Pro, plus a critic "
+               "sub-agent that audits every response against its cited chunks to catch "
+               "hallucinations. Deployed on Cloud Run with SSE streaming."},
+
+    {"period": "Mar. 2026", "role": "TicketForge",
+     "detail": "Automation pipeline that ingests raw meeting transcripts and generates "
+               "structured Linear tickets through a multi-stage Groq prompt chain, "
+               "extracting tasks, assignees, deadlines, and priorities from unstructured "
+               "text. Devpost hackathon entry."},
+
+    {"period": "Feb. 2026", "role": "DebtClear",
+     "detail": "LLM-powered debt resolution platform with a Negotiate Mode that generates "
+               "personalised negotiation scripts from a user's debt profile. Django REST "
+               "on EC2, Dockerised, GitHub Actions CI/CD, Groq (Llama 3) with SSE "
+               "streaming. Sole developer, production-ready in under 72 hours for Hack "
+               "the Pulse 2026."},
+
+    {"period": "Jan. 2026", "role": "DevSync",
+     "detail": "Full-stack developer portfolio platform — 12+ REST modules, Dockerised "
+               "with PostgreSQL 16, Redis 7, Celery and Nginx. Local-LLM assistant on "
+               "Ollama with a ChromaDB RAG pipeline and no external API keys. Jenkins "
+               "CI/CD with linting, Safety and Trivy scans, and 35+ tests."},
 ]
 
 EDUCATION = {
-    "degree": "B.E. Computer Engineering",
-    "status": "In progress",
+    "degree": "B.Tech, Computer Engineering",
+    "institution": "Sardar Patel Institute of Technology",
+    "affiliation": "Mumbai University · Mumbai, India",
+    "status": "Aug. 2023 – June 2027",
     "detail": "Computer-science fundamentals with a practical bias: data structures, "
-              "operating systems, databases, and machine learning, applied to things that "
-              "get deployed.",
+              "operating systems, databases, and machine learning, applied to things "
+              "that actually get deployed.",
 }
 
+CERTIFICATIONS = [
+    ("Meta Back-End Developer Professional Certificate", "Meta · Coursera",   "Dec 2025"),
+    ("CI/CD: Continuous Integration and Continuous Delivery", "IBM · Coursera", "Jan 2026"),
+    ("AWS Cloud Technical Essentials", "Amazon Web Services · Coursera",       "Jan 2026"),
+    ("Docker for Beginners", "KodeKloud",                                       "Jan 2026"),
+    ("Kubernetes for Absolute Beginners", "KodeKloud",                          "Jan 2026"),
+]
+
 SKILLS = [
-    "Backend architecture — Django, DRF, FastAPI",
-    "Relational data modelling and query tuning",
-    "CI/CD and deployment — Actions, Docker, EC2",
-    "LLM integration with hard correctness boundaries",
-    "Writing docs a stranger can follow",
+    "Languages — Python, JavaScript, TypeScript, SQL, HTML/CSS, C",
+    "Frameworks — Django, DRF, Next.js, React, Express.js, Tailwind",
+    "DevOps &amp; cloud — Docker, AWS EC2, Cloud Run, Jenkins, Actions, Nginx",
+    "Databases — PostgreSQL, MongoDB Atlas (Vector Search, BM25), ChromaDB",
+    "AI — Groq, Vertex AI (Gemini), Ollama, sentence-transformers, ReAct agents",
 ]
 
 # --- stats (rendered in the borrowed bento grid) ----------------------------
-# EDIT: placeholders. `span` is the desktop column span; build.py keeps the
-# mobile collapse correct regardless of what you put here.
+# `span` is the desktop column span; build.py keeps the mobile collapse correct
+# regardless of what you put here. Every figure has to be checkable against
+# something else on the page — the build count matches the experience table
+# directly above this section, so don't change one without the other.
 
 STATS_FEATURE = {
     "label": "Featured build",
@@ -293,11 +267,11 @@ STATS_FEATURE = {
 }
 
 STATS = [
-    {"value": 3,   "suffix": "",  "label": "Deployed projects",      "accent": "pink",   "span": 1},
-    {"value": 4,   "suffix": "+", "label": "Years on Python",        "accent": "lime",   "span": 1},
+    {"value": 4,   "suffix": "",  "label": "Builds shipped in 2026", "accent": "pink",   "span": 1},
+    {"value": 3,   "suffix": "+", "label": "Years on Python",        "accent": "lime",   "span": 1},
     {"value": 100, "suffix": "%", "label": "Automated deploys",      "accent": "violet", "span": 2,
      "note": "automated — push to main, tests, ship"},
-    {"value": 1,   "suffix": "",  "label": "HTML file, zero builds", "accent": "white",  "span": 1},
+    {"value": 1,   "suffix": "",  "label": "HTML file, zero requests", "accent": "white", "span": 1},
     {"value": 9,   "suffix": "",  "label": "Design eras borrowed from", "accent": "black", "span": 2,
      "note": "one device each, dropped into a maximalist house style"},
 ]
@@ -325,7 +299,7 @@ MARQUEES = {
     "stack":    ["Django", "FastAPI", "PostgreSQL", "Docker", "AWS EC2",
                  "GitHub Actions", "Redis", "Celery"],
     "shipped":  ["Shipped", "Tested", "Deployed", "Monitored", "Documented", "Still up"],
-    "labs":     ["2am commits", "no roadmap", "scope creep",
+    "projects": ["2am commits", "no roadmap", "scope creep",
                  "works on my machine", "ship it"],
     "contact":  ["Let's build something", "that has to work"],
 }
