@@ -1,0 +1,54 @@
+{% import "macros.html.j2" as m %}
+
+<section id="about" class="lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="about-title">
+  <span class="ghost-word" style="left:-3%; bottom:2%;" aria-hidden="true">ABOUT</span>
+
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
+    {{ m.sec_head('about', 'About', m.sticker('who is this guy', 'cyan', 'anim-wobble')) }}
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-[.8fr_1.2fr] items-start">
+
+      <div class="rv rv-slide mx-auto w-full max-w-[320px] lg:max-w-none">
+        {{ m.photo(photo, '(min-width:1024px) 30vw, (min-width:640px) 320px, 88vw',
+                   style='transform:rotate(-2deg)', frame_bg='var(--lime)') }}
+        <div class="mt-5 flex flex-wrap gap-2.5 justify-center lg:justify-start">
+          {%- for s in about.photo_stickers %}{{ m.sticker(s.text, s.accent) }}{% endfor %}
+        </div>
+      </div>
+
+      <div class="space-y-5">
+        {# Borrowed: glassmorphism — it needs a busy backdrop to be worth
+           blurring, and a striped, dotted yellow page is exactly that. #}
+        <div class="glass card rv kinetic" data-frost>
+          <div class="flex justify-end -mt-1 mb-3">{{ m.credit('glassmorphism, 2020') }}</div>
+          {%- for para in about.paragraphs %}
+          <p class="{% if not loop.first %}mt-4 {% endif %}text-[16px] sm:text-[17px] leading-relaxed">{{ para }}</p>
+          {%- endfor %}
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          {%- for fact in about.facts %}
+          <div class="{{ m.plate(fact.accent) }} card rv kinetic">
+            {%- if fact.accent == 'neo' %}
+            {# Borrowed: neomorphism — same yellow as the page, pushed out of it
+               with a matched light/dark shadow pair. #}
+            <div class="flex justify-between items-start gap-2">
+              <p class="eyebrow">{{ fact.label }}</p>
+              {{ m.credit('neomorphism, 2019', light=true) }}
+            </div>
+            {%- else %}
+            {%- set muted = m.MUTED_INK.get(fact.accent) %}
+            <p class="eyebrow"{% if muted %} style="color:{{ muted }}"{% endif %}>{{ fact.label }}</p>
+            {%- endif %}
+            {%- set head = m.HEAD_INK.get(fact.accent) %}
+            <p class="display mt-2" style="font-size:1.65rem{% if head %}; color:{{ head }}{% endif %}">{{ fact.value }}</p>
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />

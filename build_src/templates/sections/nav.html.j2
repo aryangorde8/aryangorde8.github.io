@@ -1,0 +1,15 @@
+<nav class="nav" aria-label="Primary">
+  <a class="nav-brand" href="#top">AG<span style="color:var(--pink)">.</span></a>
+
+  <div class="nav-scroll">
+    <ul class="nav-list">
+      {%- for id, label in nav %}
+      <li><a class="nav-link" href="#{{ id }}" data-nav="{{ id }}">{{ label }}</a></li>
+      {%- endfor %}
+    </ul>
+  </div>
+
+  {# Also the WCAG 2.2.2 pause control for the looping marquees, which is why
+     it lives in the nav rather than tucked away at the bottom. #}
+  <button type="button" class="motion-btn" data-motion-toggle aria-pressed="false">Reduce motion</button>
+</nav>
