@@ -1,0 +1,37 @@
+{% import "macros.html.j2" as m %}
+
+<section id="stack" class="lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="stack-title"
+         style="background-color:var(--violet); background-image:repeating-linear-gradient(-45deg, rgba(0,0,0,.10) 0 16px, transparent 16px 32px)">
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
+    {{ m.sec_head('stack', 'Stack', m.sticker('tools, not religion', 'lime', 'anim-wobble'), color='#fff') }}
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+      {%- for group in stack %}
+      {%- set dark = group.accent in m.DARK %}
+      {%- set head = m.HEAD_INK.get(group.accent) %}
+      {%- set muted = m.MUTED_INK.get(group.accent) %}
+      {%- if group.accent == 'clay' %}
+      {# Borrowed: claymorphism — neomorphism inflated. 36px radii, a big soft
+         drop shadow, two inner shadows. The one soft thing on a page of hard
+         corners. #}
+      {%- endif %}
+      <div class="{{ m.plate(group.accent) }} card rv kinetic">
+        {%- if group.accent == 'clay' %}
+        <div class="flex justify-between items-start gap-2">
+          <h3 class="display" style="font-size:1.75rem">{{ group.title }}</h3>
+          {{ m.credit('clay, 2021', light=true) }}
+        </div>
+        {%- else %}
+        <h3 class="display" style="font-size:1.75rem{% if head %}; color:{{ head }}{% endif %}">{{ group.title }}</h3>
+        {%- endif %}
+        <p class="mt-1 text-sm font-semibold"{% if muted %} style="color:{{ muted }}"{% endif %}>{{ group.note }}</p>
+        <div class="mt-4">
+          {%- for item in group['items'] %}{{ m.tag(item, light=dark) }}{% endfor %}
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{{ m.marquee(marquees.shipped, 'marquee--rev') }}

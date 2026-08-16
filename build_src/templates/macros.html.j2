@@ -1,0 +1,105 @@
+{# ===========================================================================
+   COMPONENT MACROS
+
+   These exist so the legibility contract is enforced in one place instead of
+   being retyped into every card. plate() is the important one: it maps an
+   accent name to a pre-verified AA-safe text/background pairing. If you find
+   yourself hand-writing `style="background:..."` on a text container, add an
+   accent here instead — that's how the contrast guarantee stays true.
+   =========================================================================== #}
+
+{# accent name -> surface class. 'neo', 'clay' and 'glass' are the borrowed
+   treatments; the rest are the maximalist house plates. #}
+{% set PLATE = {
+  'black':  'plate',
+  'white':  'plate-w',
+  'pink':   'plate-pink',
+  'cyan':   'plate-cyan',
+  'lime':   'plate-lime',
+  'violet': 'plate-violet',
+  'neo':    'neo',
+  'clay':   'clay',
+  'glass':  'glass',
+} %}
+
+{# Surfaces dark enough that a white tag reads better than a black one. #}
+{% set DARK = ['black', 'pink', 'violet', 'glass'] %}
+
+{# Accent inks, keyed by surface. ONLY the black plate gets them.
+   This looked like it should generalise to every dark surface, and it doesn't:
+   cyan on black is 12:1, but cyan on pink is 3.3:1 and cyan on violet 3.28:1 —
+   both fail AA for body text. On pink, violet and glass the plate's own white
+   is already the correct, verified choice, so we emit no override at all and
+   let it inherit. A missing key here means "inherit", not "black". #}
+{% set HEAD_INK  = {'black': 'var(--yellow)'} %}
+{% set MUTED_INK = {'black': 'var(--cyan)'} %}
+
+
+{% macro plate(accent) %}{{ PLATE.get(accent, 'plate-w') }}{% endmacro %}
+
+
+{% macro sticker(text, accent='pink', extra='') %}
+<span class="sticker{% if accent != 'pink' %} sticker--{{ accent }}{% endif %}{% if extra %} {{ extra }}{% endif %}">{{ text }}</span>
+{%- endmacro %}
+
+
+{% macro credit(text, light=false) %}
+<span class="credit{% if light %} credit--light{% endif %}">{{ text }}</span>
+{%- endmacro %}
+
+
+{% macro tag(text, light=false) %}
+<span class="tag{% if light %} tag--w{% endif %}">{{ text }}</span>
+{%- endmacro %}
+
+
+{% macro btn(label, href, accent='black', small=false, aria='') %}
+<a class="btn{% if accent != 'black' %} btn--{{ accent }}{% endif %}"
+   {% if small %}style="font-size:.95rem; padding:.6rem 1rem"{% endif %}
+   href="{{ href }}"{% if href.startswith('http') %} rel="noopener"{% endif %}
+   {%- if aria %} aria-label="{{ aria }}"{% endif %}>{{ label }}</a>
+{%- endmacro %}
+
+
+{# One marquee strip. `items` is repeated twice because the CSS animation
+   translates the track by -50% — the second copy is what makes the loop
+   seamless. aria-hidden because it's decorative and would otherwise be read
+   aloud twice. #}
+{% macro marquee(items, variant='') %}
+<div class="marquee{% if variant %} {{ variant }}{% endif %}" aria-hidden="true">
+  <div class="marquee-track">
+    {%- for _ in range(2) %}{% for item in items %}<span>{{ item }} ✱</span>{% endfor %}{% endfor %}
+  </div>
+</div>
+{%- endmacro %}
+
+
+{# The photo. Responsive sources come from the Pillow pipeline in build.py:
+   it emits WebP + JPEG at several widths and hands them here as `sources`.
+   `sizes` tells the browser how wide the image renders so it can pick the
+   smallest file that still looks sharp.
+   The fallback tile shows only if the image 404s, so a missing photo degrades
+   to initials instead of a broken-image icon. #}
+{% macro photo(img, sizes, classes='', style='', eager=false, frame_bg='') %}
+<div class="photo-frame{% if classes %} {{ classes }}{% endif %}"
+     {% if style or frame_bg %}style="{{ style }}{% if frame_bg %}; background:{{ frame_bg }}{% endif %}"{% endif %}
+     data-photo-frame>
+  <picture>
+    <source type="image/webp" srcset="{{ img.webp_srcset }}" sizes="{{ sizes }}" />
+    <img src="{{ img.fallback }}" srcset="{{ img.jpg_srcset }}" sizes="{{ sizes }}"
+         alt="{{ img.alt }}" width="{{ img.width }}" height="{{ img.height }}"
+         {% if eager %}fetchpriority="high"{% else %}loading="lazy" decoding="async"{% endif %} />
+  </picture>
+  <span class="photo-fallback" aria-hidden="true">{{ img.initials }}</span>
+  {% if caller is defined %}{{ caller() }}{% endif %}
+</div>
+{%- endmacro %}
+
+
+{# Section heading: big slab + a chip. `chip` is either a sticker or a credit. #}
+{% macro sec_head(id, title, chip='', color='') %}
+<div class="sec-head rv">
+  <h2 id="{{ id }}-title" class="sec-title"{% if color %} style="color:{{ color }}"{% endif %}>{{ title }}</h2>
+  {{ chip }}
+</div>
+{%- endmacro %}

@@ -1,28 +1,1358 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aryan Gorde | Portfolio</title>
-    <meta name="description" content="Aryan Gorde - Creative Developer & Designer Portfolio" />
-    <meta name="theme-color" content="#0b080c" />
-    <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/models/character.enc" as="fetch" crossorigin />
-    <link rel="prefetch" href="/models/char_environment.hdr" />
-    <link rel="prefetch" href="/draco/draco_decoder.wasm" />
-    <script type="module" crossorigin src="/assets/index-OuBgpdgn.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor3d-CDSkJVKS.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-DNmc4ToE.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker.register("/sw.js").catch(() => {});
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aryan Gorde — Backend & Full-Stack Developer</title>
+<meta name="description" content="Aryan Gorde — backend and full-stack developer. Django, FastAPI, and the infrastructure that keeps them up. Builder of DebtClear, Mnemos, and MittiGuard." />
+<meta name="theme-color" content="#ffe500" />
+<meta name="color-scheme" content="only light" />
+<link rel="canonical" href="https://aryangorde.com/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Aryan Gorde — Backend & Full-Stack Developer" />
+<meta property="og:description" content="Django, FastAPI, and the infrastructure underneath. Loud portfolio, quiet deploys." />
+<meta property="og:url" content="https://aryangorde.com/" />
+<meta property="og:image" content="https://aryangorde.com/images/aryan-680.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!--
+  ============================================================================
+  GENERATED FILE — DO NOT EDIT BY HAND.
+
+  Built by build.py from build_src/. Your edits here will be overwritten on
+  the next build. Edit these instead:
+
+     build_src/content.py            all the words
+     build_src/templates/            the markup
+     build_src/static/css/site.css   the design system
+     build_src/static/js/site.js     the behaviour
+
+  Then run:  python3 build.py
+
+  9 sections · zero external dependencies (CSS and JS
+  are inlined below; no CDN, no fonts, no runtime).
+
+  This output is deterministic: same sources in, byte-identical file out. No
+  build timestamp is embedded, deliberately — it would make `--check` flaky and
+  produce a spurious git diff on every rebuild.
+
+  DESIGN: maximalism is the house style. Nine devices are quoted from other
+  eras, each labelled on-page with a credit chip:     skeuomorphism  2007   hero résumé button   a real bevel, lit from above     neomorphism    2019   about tile           soft extrusion in the page's own yellow     glassmorphism  2020   about bio panel      frosted over the pattern     claymorphism   2021   frontend card        puffy, oversized radii     minimalism     —      DebtClear            a full-bleed strip of restraint     brutalism      2018   experience           materials left exposed     liquid glass   2025   hero photo badge     refractive rim, travelling sheen     bento grid     2023   stats                unequal tiles, uniform gutters     spatial UI     2024   contact              layers at different depths
+  COLOUR CONTRACT: every run of text sits on an opaque plate. Accents are only
+  used at AA-safe pairings — see the table at the top of the CSS.
+  ============================================================================
+-->
+
+<style>
+/* ==========================================================================
+   UTILITIES
+   A hand-written replacement for the Tailwind Play CDN. Covers exactly the
+   103 utility classes this site uses and nothing else — build.py fails the
+   build if a template ever references one that isn't defined here, so this
+   file can't silently drift out of sync with the markup.
+
+   Scale matches Tailwind's so the class names mean what you expect:
+     1=.25rem  2=.5  3=.75  4=1  5=1.25  6=1.5  7=1.75  8=2  10=2.5
+     12=3  14=3.5  20=5  32=8
+   Breakpoints: sm 640px · md 768px · lg 1024px · xl 1280px
+   ========================================================================== */
+
+/* --- display / position ------------------------------------------------- */
+.relative        { position: relative; }
+.inline-block    { display: inline-block; }
+.inline-flex     { display: inline-flex; }
+.flex            { display: flex; }
+.grid            { display: grid; }
+.overflow-hidden { overflow: hidden; }
+.overflow-x-auto { overflow-x: auto; }
+.z-10            { z-index: 10; }
+
+/* --- flex / grid -------------------------------------------------------- */
+.flex-1          { flex: 1 1 0%; }
+.flex-col        { flex-direction: column; }
+.flex-wrap       { flex-wrap: wrap; }
+.items-start     { align-items: flex-start; }
+.items-center    { align-items: center; }
+.items-end       { align-items: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-center  { justify-content: center; }
+.justify-end     { justify-content: flex-end; }
+.self-start      { align-self: flex-start; }
+
+.gap-2    { gap: .5rem; }
+.gap-2\.5 { gap: .625rem; }
+.gap-3    { gap: .75rem; }
+.gap-4    { gap: 1rem; }
+.gap-5    { gap: 1.25rem; }
+.gap-6    { gap: 1.5rem; }
+.gap-7    { gap: 1.75rem; }
+.gap-8    { gap: 2rem; }
+.gap-y-12 { row-gap: 3rem; }
+
+/* --- sizing ------------------------------------------------------------- */
+.w-full           { width: 100%; }
+.w-fit            { width: fit-content; }
+.mx-auto          { margin-left: auto; margin-right: auto; }
+.max-w-2xl        { max-width: 42rem; }
+.max-w-3xl        { max-width: 48rem; }
+.max-w-site       { max-width: 80rem; }
+.max-w-\[260px\]  { max-width: 260px; }
+.max-w-\[320px\]  { max-width: 320px; }
+.max-w-\[340px\]  { max-width: 340px; }
+
+/* --- margin / padding --------------------------------------------------- */
+.-mt-1    { margin-top: -.25rem; }
+.mt-1     { margin-top: .25rem; }
+.mt-1\.5  { margin-top: .375rem; }
+.mt-2     { margin-top: .5rem; }
+.mt-3     { margin-top: .75rem; }
+.mt-4     { margin-top: 1rem; }
+.mt-5     { margin-top: 1.25rem; }
+.mt-6     { margin-top: 1.5rem; }
+.mt-7     { margin-top: 1.75rem; }
+.mt-8     { margin-top: 2rem; }
+.mt-10    { margin-top: 2.5rem; }
+.mt-12    { margin-top: 3rem; }
+.mt-14    { margin-top: 3.5rem; }
+.mt-20    { margin-top: 5rem; }
+.mb-3     { margin-bottom: .75rem; }
+.m-0      { margin: 0; }
+
+.p-0   { padding: 0; }
+.px-4  { padding-left: 1rem;    padding-right: 1rem; }
+.px-5  { padding-left: 1.25rem; padding-right: 1.25rem; }
+.py-10 { padding-top: 2.5rem;   padding-bottom: 2.5rem; }
+.py-14 { padding-top: 3.5rem;   padding-bottom: 3.5rem; }
+.py-20 { padding-top: 5rem;     padding-bottom: 5rem; }
+
+/* space-y: margin between siblings, not on the first one */
+.space-y-2 > * + * { margin-top: .5rem; }
+.space-y-5 > * + * { margin-top: 1.25rem; }
+.space-y-9 > * + * { margin-top: 2.25rem; }
+
+/* --- typography --------------------------------------------------------- */
+.text-xs        { font-size: .75rem;  line-height: 1rem; }
+.text-sm        { font-size: .875rem; line-height: 1.25rem; }
+.text-lg        { font-size: 1.125rem; line-height: 1.75rem; }
+.text-\[11px\]  { font-size: 11px; }
+.text-\[13px\]  { font-size: 13px; }
+.text-\[15px\]  { font-size: 15px; }
+.text-\[16px\]  { font-size: 16px; }
+.font-medium    { font-weight: 500; }
+.font-semibold  { font-weight: 600; }
+.font-bold      { font-weight: 700; }
+.uppercase      { text-transform: uppercase; }
+.text-center    { text-align: center; }
+.leading-tight    { line-height: 1.25; }
+.leading-relaxed  { line-height: 1.625; }
+.tracking-widest      { letter-spacing: .1em; }
+.tracking-\[0\.18em\] { letter-spacing: .18em; }
+.tracking-\[0\.24em\] { letter-spacing: .24em; }
+.list-none      { list-style: none; }
+
+/* --- responsive: sm (>=640px) ------------------------------------------- */
+@media (min-width: 640px) {
+  .sm\:grid            { display: grid; }
+  .sm\:grid-cols-2     { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sm\:grid-cols-3     { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sm\:grid-cols-\[9rem_1fr\] { grid-template-columns: 9rem 1fr; }
+  .sm\:gap-8           { gap: 2rem; }
+  .sm\:gap-x-14        { column-gap: 3.5rem; }
+  .sm\:mt-0            { margin-top: 0; }
+  .sm\:px-6            { padding-left: 1.5rem;  padding-right: 1.5rem; }
+  .sm\:px-8            { padding-left: 2rem;    padding-right: 2rem; }
+  .sm\:py-16           { padding-top: 4rem;     padding-bottom: 4rem; }
+  .sm\:py-20           { padding-top: 5rem;     padding-bottom: 5rem; }
+  .sm\:py-32           { padding-top: 8rem;     padding-bottom: 8rem; }
+  .sm\:text-\[17px\]   { font-size: 17px; }
+  .sm\:text-\[18px\]   { font-size: 18px; }
+}
+
+/* --- responsive: md (>=768px) ------------------------------------------- */
+@media (min-width: 768px) {
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* --- responsive: lg (>=1024px) ------------------------------------------ */
+@media (min-width: 1024px) {
+  .lg\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lg\:grid-cols-\[1\.25fr_\.75fr\]  { grid-template-columns: 1.25fr .75fr; }
+  .lg\:grid-cols-\[\.8fr_1\.2fr\]    { grid-template-columns: .8fr 1.2fr; }
+  .lg\:grid-cols-\[\.65fr_1\.35fr\]  { grid-template-columns: .65fr 1.35fr; }
+  .lg\:gap-10        { gap: 2.5rem; }
+  .lg\:justify-start { justify-content: flex-start; }
+  .lg\:max-w-none    { max-width: none; }
+  .lg\:text-left     { text-align: left; }
+}
+
+/* --- responsive: xl (>=1280px) ------------------------------------------ */
+@media (min-width: 1280px) {
+  .xl\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+
+/* ==========================================================================
+   0. FOUNDATION
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --yellow: #ffe500;
+  --pink:   #c4007a;
+  --cyan:   #00d5ff;
+  --lime:   #b6ff00;
+  --violet: #7b2cff;
+  --display: Impact, "Haettenschweiler", "Arial Narrow Bold", "Arial Black", sans-serif;
+  --body: "Trebuchet MS", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "SFMono-Regular", "Courier New", monospace;
+  --nav-h: 58px;
+}
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+html[data-motion="reduced"] { scroll-behavior: auto; }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  color: #000;
+  background-color: var(--yellow);
+  /* Layered pattern: diagonal stripes + halftone dots. Sits behind plates. */
+  background-image:
+    repeating-linear-gradient(45deg, rgba(0,0,0,.06) 0 14px, transparent 14px 28px),
+    radial-gradient(rgba(0,0,0,.16) 1.7px, transparent 1.8px);
+  background-size: auto, 18px 18px;
+  overflow-x: hidden;
+}
+
+/* THE MOTION GATE. Everything animated opts in under [data-motion="full"]. */
+html[data-motion="reduced"] *,
+html[data-motion="reduced"] *::before,
+html[data-motion="reduced"] *::after {
+  animation-duration: .001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: .001ms !important;
+  scroll-behavior: auto !important;
+}
+
+section { scroll-margin-top: calc(var(--nav-h) + 12px); }
+section:focus { outline: none; }
+img { max-width: 100%; display: block; }
+
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible, summary:focus-visible {
+  outline: 4px solid var(--focus, #000);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  /* Chip is black on the yellow body, so the ring must be black too —
+     white would vanish against yellow. */
+  --focus: #000;
+  position: absolute; top: -120px; left: 12px; z-index: 300;
+  background: #000; color: #fff; border: 3px solid #fff;
+  padding: 12px 18px; text-decoration: none;
+  font: 700 14px/1 var(--mono);
+}
+.skip-link:focus { top: 10px; }
+
+/* Offscreen sections skip layout+paint. This also pauses their CSS
+   animations for free, which matters a lot on a page this animated. */
+.lazy-paint { content-visibility: auto; contain-intrinsic-size: 1px 800px; }
+
+/* ==========================================================================
+   1. PLATES — the legibility contract
+   ========================================================================== */
+/* Each plate sets --focus for its own surface. A focus ring is drawn OUTSIDE
+   the element it belongs to, so a button on a black plate needs a white ring —
+   the default black one is invisible against the plate behind it. */
+.plate        { --focus: #fff; background: #000;          color: #fff; border: 4px solid #fff; box-shadow: 10px 10px 0 var(--cyan), 10px 10px 0 4px #000; }
+.plate-w      { --focus: #000; background: #fff;          color: #000; border: 4px solid #000; box-shadow: 10px 10px 0 var(--pink), 10px 10px 0 4px #000; }
+.plate-pink   { --focus: #fff; background: var(--pink);   color: #fff; border: 4px solid #000; box-shadow: 10px 10px 0 #000; }
+.plate-cyan   { --focus: #000; background: var(--cyan);   color: #000; border: 4px solid #000; box-shadow: 10px 10px 0 #000; }
+.plate-lime   { --focus: #000; background: var(--lime);   color: #000; border: 4px solid #000; box-shadow: 10px 10px 0 #000; }
+.plate-violet { --focus: #fff; background: var(--violet); color: #fff; border: 4px solid #000; box-shadow: 10px 10px 0 #000; }
+
+.display {
+  font-family: var(--display);
+  text-transform: uppercase;
+  line-height: .9;
+  letter-spacing: .01em;
+  overflow-wrap: break-word;
+}
+/* Outlined display text. The transparent fill is applied ONLY where text-stroke
+   actually works — otherwise "Gorde" would render as invisible text. */
+.outline-text { color: #000; }
+@supports (-webkit-text-stroke: 2px #000) {
+  .outline-text { color: transparent; -webkit-text-stroke: 2.5px #000; paint-order: stroke fill; }
+}
+
+.eyebrow { font: 800 11px/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; }
+
+.sec-head { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+.sec-title {
+  font-family: var(--display); text-transform: uppercase; line-height: .88;
+  font-size: clamp(2.25rem, 8vw, 4.75rem);
+}
+
+/* ==========================================================================
+   2. STICKERS & BUTTONS
+   ========================================================================== */
+.sticker {
+  display: inline-block;
+  background: var(--pink); color: #fff;
+  border: 3px solid #000;
+  padding: .35rem .75rem;
+  font: 800 12px/1 var(--body);
+  letter-spacing: .08em; text-transform: uppercase;
+  box-shadow: 4px 4px 0 #000;
+  transform: rotate(-4deg);
+}
+.sticker--cyan   { background: var(--cyan);   color: #000; transform: rotate(3deg); }
+.sticker--lime   { background: var(--lime);   color: #000; transform: rotate(-2deg); }
+.sticker--violet { background: var(--violet); color: #fff; transform: rotate(2deg); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  padding: .85rem 1.4rem;
+  border: 4px solid #000;
+  background: #000; color: var(--yellow);
+  font-family: var(--display); text-transform: uppercase;
+  font-size: 1.125rem; letter-spacing: .03em;
+  text-decoration: none; cursor: pointer;
+  box-shadow: 7px 7px 0 var(--cyan), 7px 7px 0 4px #000;
+  transition: transform .1s ease, box-shadow .1s ease;
+}
+.btn:hover  { background: #1a1a1a; }
+.btn:active { transform: translate(7px, 7px); box-shadow: 0 0 0 var(--cyan), 0 0 0 4px #000; }
+.btn--pink  { background: var(--pink); color: #fff; box-shadow: 7px 7px 0 #000; }
+.btn--pink:hover  { background: #a30066; }
+.btn--pink:active { transform: translate(7px,7px); box-shadow: 0 0 0 #000; }
+.btn--cyan  { background: var(--cyan); color: #000; box-shadow: 7px 7px 0 #000; }
+.btn--cyan:hover  { background: #35dfff; }
+.btn--cyan:active { transform: translate(7px,7px); box-shadow: 0 0 0 #000; }
+.btn--lime  { background: var(--lime); color: #000; box-shadow: 7px 7px 0 #000; }
+.btn--lime:hover  { background: #c8ff3d; }
+.btn--lime:active { transform: translate(7px,7px); box-shadow: 0 0 0 #000; }
+
+/* ==========================================================================
+   3. NAV
+   ========================================================================== */
+.nav {
+  --focus: #fff;
+  position: sticky; top: 0; z-index: 100;
+  background: #000;
+  border-bottom: 4px solid #000;
+  min-height: var(--nav-h);
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 12px;
+}
+.nav-brand {
+  font-family: var(--display); text-transform: uppercase;
+  font-size: 1.25rem; color: var(--yellow);
+  text-decoration: none; white-space: nowrap; padding: 4px 6px;
+}
+.nav-brand:hover { color: var(--cyan); }
+.nav-scroll { flex: 1; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; }
+.nav-scroll::-webkit-scrollbar { height: 0; }
+.nav-list { display: flex; align-items: center; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.nav-link {
+  display: block; white-space: nowrap;
+  padding: 9px 11px;
+  color: #fff; text-decoration: none;
+  font: 800 11px/1 var(--mono);
+  letter-spacing: .12em; text-transform: uppercase;
+  border: 2px solid transparent;
+}
+.nav-link:hover { background: var(--cyan); color: #000; border-color: #000; }
+.nav-link[aria-current="true"] { background: var(--yellow); color: #000; border-color: #000; }
+
+.motion-btn {
+  --focus: #fff;
+  flex: none;
+  background: transparent; color: #fff;
+  border: 2px solid #fff;
+  padding: 8px 10px; min-height: 34px;
+  font: 800 10px/1 var(--mono);
+  letter-spacing: .1em; text-transform: uppercase;
+  cursor: pointer;
+}
+.motion-btn:hover { background: #fff; color: #000; }
+/* aria-pressed carries the state for assistive tech; this shows the same state
+   visually, so the label stays constant and doesn't break Label in Name. */
+.motion-btn[aria-pressed="true"] { background: var(--lime); color: #000; border-color: #000; }
+
+/* ==========================================================================
+   4. PHOTO FRAMES
+   ========================================================================== */
+.photo-frame {
+  position: relative;
+  /* The frame owns the aspect ratio, not the photo. Swap in any source image
+     and the layout stays put — no reflow, no 700px-tall hero portrait. */
+  aspect-ratio: 4 / 5;
+  border: 5px solid #000;
+  background: var(--cyan);
+  box-shadow: 12px 12px 0 #000;
+  overflow: hidden;
+}
+/* object-position biased above centre so the crop keeps the face when a tall
+   source is squeezed into 4:5. Adjust this one number if the crop sits wrong. */
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+/* Shown only if images/aryan.jpg is missing, so the page never renders a
+   broken-image icon. Self-hides the moment the file exists. */
+.photo-fallback {
+  display: none; place-items: center;
+  aspect-ratio: 4 / 5;
+  background: var(--pink); color: #fff;
+  font-family: var(--display); font-size: clamp(3rem, 12vw, 6rem);
+}
+.photo-frame.is-missing img { display: none; }
+.photo-frame.is-missing .photo-fallback { display: grid; }
+
+/* ==========================================================================
+   5. MARQUEES
+   ========================================================================== */
+.marquee {
+  overflow: hidden; white-space: nowrap;
+  border-top: 5px solid #000; border-bottom: 5px solid #000;
+  background: #000;
+}
+.marquee-track { display: inline-block; padding: .6rem 0; }
+.marquee span {
+  padding: 0 1.1rem;
+  font: 800 15px/1 var(--body);
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--yellow);
+}
+.marquee--pink { background: var(--pink); }
+.marquee--pink span { color: #fff; }
+.marquee--cyan { background: var(--cyan); }
+.marquee--cyan span { color: #000; }
+
+/* ==========================================================================
+   6. ANIMATION LIBRARY — all opt-in under [data-motion="full"].
+   Transform/opacity only, so everything stays on the compositor.
+   ========================================================================== */
+@keyframes mq-left  { from { transform: translateX(0);    } to { transform: translateX(-50%); } }
+@keyframes mq-right { from { transform: translateX(-50%); } to { transform: translateX(0);    } }
+@keyframes wobble   { 0%,100% { transform: rotate(-3.5deg); } 50% { transform: rotate(3.5deg); } }
+@keyframes floaty   { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes spin     { to { transform: rotate(360deg); } }
+@keyframes pop      { 0%,100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+@keyframes rise     { from { opacity: 0; transform: translateY(30px) rotate(-1.2deg); } to { opacity: 1; transform: none; } }
+@keyframes slidein  { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
+
+html[data-motion="full"] .marquee-track                { animation: mq-left 30s linear infinite; }
+html[data-motion="full"] .marquee--rev .marquee-track  { animation-name: mq-right; }
+html[data-motion="full"] .marquee--fast .marquee-track { animation-duration: 18s; }
+html[data-motion="full"] .anim-wobble { animation: wobble 3.2s ease-in-out infinite; }
+html[data-motion="full"] .anim-float  { animation: floaty 4.5s ease-in-out infinite; }
+html[data-motion="full"] .anim-spin   { animation: spin 14s linear infinite; }
+html[data-motion="full"] .anim-pop    { animation: pop 2.6s ease-in-out infinite; }
+/* Stagger a few so they don't pulse in lockstep — lockstep reads as a glitch. */
+html[data-motion="full"] .d1 { animation-delay: .35s; }
+html[data-motion="full"] .d2 { animation-delay: .7s; }
+html[data-motion="full"] .d3 { animation-delay: 1.05s; }
+
+html[data-motion="full"] .kinetic { transition: transform .16s ease, box-shadow .16s ease; }
+html[data-motion="full"] .kinetic:hover        { transform: translate(-4px, -6px) rotate(-1deg); }
+html[data-motion="full"] .kinetic:focus-within { transform: translate(-4px, -6px) rotate(-1deg); }
+
+/* Scroll reveal. Armed by JS only when IntersectionObserver exists, and
+   disarmed automatically if the observer never fires — content must never be
+   left stranded at opacity 0. */
+html.reveal-armed .rv { opacity: 0; }
+html.reveal-armed .rv.rv-in { animation: rise .55s cubic-bezier(.2,.9,.3,1.2) both; }
+html.reveal-armed .rv.rv-in.rv-slide { animation-name: slidein; }
+
+/* ==========================================================================
+   7. CARDS, TAGS, TABLE
+   ========================================================================== */
+.card { padding: 1.5rem; }
+@media (min-width: 640px) { .card { padding: 1.9rem; } }
+
+/* Grid/flex children default to min-width:auto, which lets a wide Impact
+   heading push a track past its container and clip on small screens. */
+.grid > *, .grid > * > * { min-width: 0; }
+
+.tag {
+  display: inline-block;
+  background: #000; color: var(--yellow);
+  border: 2px solid #000;
+  padding: .25rem .6rem; margin: 0 .3rem .45rem 0;
+  font: 800 11px/1.3 var(--mono);
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.tag--w { background: #fff; color: #000; }
+
+.stat-num {
+  font-family: var(--display);
+  font-size: clamp(2.75rem, 11vw, 5rem);
+  line-height: .85;
+  font-variant-numeric: tabular-nums;
+}
+
+.rule { border: 0; border-top: 5px solid #000; margin: 0; }
+
+/* Big rotated background word — decorative depth only. */
+.ghost-word {
+  position: absolute; pointer-events: none; user-select: none;
+  font-family: var(--display); text-transform: uppercase;
+  color: transparent; -webkit-text-stroke: 2px rgba(0,0,0,.14);
+  font-size: clamp(5rem, 22vw, 16rem); line-height: .8;
+  z-index: 0;
+}
+
+.exp-table { width: 100%; border-collapse: collapse; }
+.exp-table th, .exp-table td { border: 3px solid #000; padding: .8rem .85rem; text-align: left; vertical-align: top; }
+.exp-table thead th { background: #000; color: var(--yellow); font: 800 11px/1.3 var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+.exp-table tbody td { background: #fff; font-size: .9375rem; }
+.exp-table tbody tr:nth-child(even) td { background: #fff7b0; }
+
+/* ==========================================================================
+   8. BORROWED DEVICES
+   Maximalism is the house style. These nine devices are lifted from the other
+   design eras and dropped in as accents — one signature move each, not a full
+   restyle. Every one is tagged in the markup with a .credit chip so the
+   borrowing reads as deliberate rather than as an inconsistency.
+   Each keeps the house legibility rule: text on an opaque (or dark-enough)
+   surface, AA or better.
+   ========================================================================== */
+
+.credit {
+  display: inline-block;
+  background: #000; color: var(--lime);
+  border: 2px solid var(--lime);
+  padding: .3rem .55rem;
+  font: 800 9px/1 var(--mono);
+  letter-spacing: .16em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.credit--light { background: #fff; color: #000; border-color: #000; }
+
+/* --- 01 SKEUOMORPHISM: brass, lit from above, physically depresses -------- */
+.skeuo {
+  color: #2b1d0c;
+  background-color: #d9ae6b;
+  background-image: linear-gradient(180deg, #f4e0af 0%, #c99c56 100%);
+  border: 3px solid #6d4f26;
+  box-shadow:
+    inset 0 2px 0 rgba(255,255,255,.8),
+    inset 0 -3px 5px rgba(120,85,30,.5),
+    0 6px 0 #6d4f26,
+    0 14px 22px -10px rgba(0,0,0,.6);
+  text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+/* background-color too, not just the image: .btn:hover sets a dark shorthand
+   and would otherwise win the colour underneath this gradient. */
+.skeuo:hover { background-color: #e2bd80; background-image: linear-gradient(180deg, #fbeac0 0%, #d3a660 100%); }
+.skeuo:active { transform: translateY(6px); box-shadow: inset 0 3px 7px rgba(0,0,0,.45), 0 0 0 #6d4f26; }
+
+/* --- 02 NEOMORPHISM: soft extrusion, in the page's own yellow ------------- */
+.neo {
+  background: var(--yellow);
+  border: 0;
+  border-radius: 24px;
+  box-shadow: 9px 9px 18px #c9b400, -9px -9px 18px #ffff54;
+  color: #000;
+}
+.neo-inset { box-shadow: inset 7px 7px 14px #c9b400, inset -7px -7px 14px #ffff54; }
+
+/* --- 03 GLASSMORPHISM: frosted over the pattern --------------------------
+   The busy striped-and-dotted background is exactly what this needs — there
+   has to be something worth blurring. Dark fill keeps white text at AA even
+   where the yellow shows through. */
+.glass {
+  --focus: #fff;
+  background: rgba(6,6,10,.66);
+  border: 2px solid rgba(255,255,255,.38);
+  border-radius: 18px;
+  color: #fff;
+  box-shadow: 0 16px 40px -18px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.4);
+}
+.glass.is-live { backdrop-filter: blur(14px) saturate(1.5); }
+
+/* --- 04 CLAYMORPHISM: puffy, oversized radius, double inner shadow -------- */
+.clay {
+  background: #e9dcff;
+  color: #35215c;
+  border: 0;
+  border-radius: 36px;
+  box-shadow:
+    0 20px 34px -16px rgba(53,33,92,.55),
+    inset -9px -9px 18px rgba(150,115,215,.30),
+    inset 9px 9px 18px rgba(255,255,255,.95);
+}
+
+/* --- 05 MINIMALISM: the breather ----------------------------------------
+   A full-bleed strip of restraint. It works *because* of what surrounds it:
+   the loudest page on earth makes plain white read as confidence. */
+.minimal {
+  background: #fbfbf9;
+  color: #121212;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.minimal .hair { border: 0; border-top: 1px solid #dcdcd6; margin: 0; }
+.minimal-accent { color: #a3005f; }   /* house pink, darkened for AA on white */
+
+/* --- 07 BRUTALISM: raw, exposed, no softening ---------------------------- */
+.brut {
+  background: #f2f2ef;
+  color: #000;
+  border: 3px solid #000;
+  border-radius: 0;
+  box-shadow: none;
+  font-family: var(--mono);
+}
+.brut-note { font: 400 11px/1.5 var(--mono); color: #444; }
+
+/* --- 08 LIQUID GLASS: specular rim and a travelling sheen ---------------- */
+.liquid {
+  --focus: #fff;
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,.4);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.04) 45%, rgba(255,255,255,.12) 100%),
+    rgba(10,8,26,.72);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.6),
+    inset 0 -16px 30px -20px rgba(200,220,255,.9),
+    0 20px 40px -22px rgba(0,0,0,.9);
+}
+.liquid.is-live { backdrop-filter: blur(18px) saturate(1.6); }
+.liquid::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: -60%;
+  width: 45%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,.34), transparent);
+  transform: skewX(-16deg);
+  pointer-events: none;
+}
+html[data-motion="full"] .liquid.is-live::after { animation: sheen 6.5s ease-in-out infinite; }
+@keyframes sheen { 0%, 60% { left: -60%; } 100% { left: 130%; } }
+
+/* --- 09 BENTO GRID: uniform gutters, deliberately unequal tiles ---------- */
+.bento { display: grid; grid-template-columns: repeat(1, minmax(0,1fr)); gap: 14px; }
+@media (min-width: 600px)  { .bento { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (min-width: 1000px) { .bento { grid-template-columns: repeat(4, minmax(0,1fr)); grid-auto-rows: 158px; } }
+/* The tile spans are set inline, so these overrides need !important to reach
+   them. Without this a `span 2` tile in a one-column grid invents a phantom
+   second column and the whole bento goes lopsided on a phone. */
+@media (max-width: 599px) { .bento > * { grid-column: span 1 !important; } }
+@media (max-width: 999px) { .bento > * { grid-row: span 1 !important; } }
+
+/* --- 10 SPATIAL UI: layers at different depths --------------------------- */
+.spatial { perspective: 1200px; }
+.depth-field { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.depth-layer { position: absolute; will-change: transform; }
+.depth-plane {
+  border-radius: 24px;
+  border: 2px solid rgba(255,255,255,.28);
+  background: rgba(255,255,255,.08);
+}
+.depth-dot {
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, rgba(255,255,255,.95), rgba(255,255,255,.2) 60%, transparent 70%);
+}
+
+.footer { background: #000; color: #fff; --focus: #fff; }
+.footer a { color: var(--cyan); }
+.footer a:hover { color: var(--lime); }
+
+</style>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<nav class="nav" aria-label="Primary">
+  <a class="nav-brand" href="#top">AG<span style="color:var(--pink)">.</span></a>
+
+  <div class="nav-scroll">
+    <ul class="nav-list">      <li><a class="nav-link" href="#about" data-nav="about">About</a></li>      <li><a class="nav-link" href="#stack" data-nav="stack">Stack</a></li>      <li><a class="nav-link" href="#debtclear" data-nav="debtclear">DebtClear</a></li>      <li><a class="nav-link" href="#projects" data-nav="projects">Projects</a></li>      <li><a class="nav-link" href="#labs" data-nav="labs">Labs</a></li>      <li><a class="nav-link" href="#experience" data-nav="experience">Experience</a></li>      <li><a class="nav-link" href="#stats" data-nav="stats">Stats</a></li>      <li><a class="nav-link" href="#contact" data-nav="contact">Contact</a></li>    </ul>
+  </div>
+
+  <button type="button" class="motion-btn" data-motion-toggle aria-pressed="false">Reduce motion</button>
+</nav>
+<main id="main" tabindex="-1">
+
+<section id="top" class="relative overflow-hidden" aria-labelledby="hero-title">
+  <span class="ghost-word anim-spin" style="right:-4%; top:8%;" aria-hidden="true">★</span>
+
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-10 sm:py-16">
+    <div class="grid gap-8 lg:grid-cols-[1.25fr_.75fr] lg:gap-10 items-start">
+
+      <div class="relative z-10">
+        <div class="flex flex-wrap gap-2.5">          <span class="sticker anim-wobble">Backend</span>          <span class="sticker sticker--cyan anim-wobble d1">Full-stack</span>          <span class="sticker sticker--lime anim-wobble d2">Ships it</span>        </div>
+
+        <h1 id="hero-title" class="display mt-5" style="font-size:clamp(3.25rem,14vw,9rem)">
+          Aryan<br /><span class="outline-text">Gorde</span>
+        </h1>
+
+        <div class="plate card mt-6 max-w-2xl">
+          <p class="eyebrow" style="color:var(--cyan)">Backend & full-stack developer</p>
+          <p class="mt-3 text-[16px] sm:text-[18px] leading-relaxed">I build the parts of a product that have to be <strong>right</strong> — money maths that reconciles to the cent, APIs that fail loudly, and deploys boring enough to run on a Tuesday night. Django and FastAPI on the server, Postgres underneath, AWS around it.</p>
+        </div>
+
+        <div class="mt-7 flex flex-wrap items-center gap-4">
+          <a class="btn btn--pink"
+   href="#debtclear">See the work</a>
+          <a class="btn skeuo" href="/Aryan_Gorde_Resume.pdf">Résumé ⤓</a>
+          <a class="btn"
+   href="#contact">Hire me</a>
+          <span class="credit">↑ skeuomorphism, 2007</span>
+        </div>
+      </div>
+
+      <div class="relative z-10 mx-auto w-full max-w-[340px] lg:max-w-none">
+<div class="photo-frame anim-float"
+style="transform:rotate(2deg)"     data-photo-frame>
+  <picture>
+    <source type="image/webp" srcset="images/aryan-280.webp 280w, images/aryan-340.webp 340w, images/aryan-520.webp 520w, images/aryan-680.webp 680w" sizes="(min-width:1024px) 26vw, (min-width:640px) 340px, 88vw" />
+    <img src="images/aryan-680.jpg" srcset="images/aryan-280.jpg 280w, images/aryan-340.jpg 340w, images/aryan-520.jpg 520w, images/aryan-680.jpg 680w" sizes="(min-width:1024px) 26vw, (min-width:640px) 340px, 88vw"
+         alt="Aryan Gorde" width="1536" height="1920"
+fetchpriority="high" />
+  </picture>
+  <span class="photo-fallback" aria-hidden="true">AG</span>
+          <div class="liquid" data-frost
+               style="position:absolute; left:12px; right:12px; bottom:12px; padding:.75rem .9rem; z-index:25">
+            <p class="text-[13px] font-bold leading-tight">Open to backend &amp; full-stack roles</p>
+          </div>
+</div>        <span style="position:absolute; bottom:-14px; left:-10px; z-index:20" class="sticker sticker--violet anim-wobble d3">Hello 👋</span>
+        <p class="mt-4 text-center lg:text-left"><span class="credit credit--light">↑ liquid glass, 2025</span></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="marquee marquee--pink" aria-hidden="true">
+  <div class="marquee-track"><span>Django ✱</span><span>FastAPI ✱</span><span>PostgreSQL ✱</span><span>Docker ✱</span><span>AWS EC2 ✱</span><span>GitHub Actions ✱</span><span>Redis ✱</span><span>Celery ✱</span><span>Django ✱</span><span>FastAPI ✱</span><span>PostgreSQL ✱</span><span>Docker ✱</span><span>AWS EC2 ✱</span><span>GitHub Actions ✱</span><span>Redis ✱</span><span>Celery ✱</span>  </div>
+</div>
+<section id="about" class="lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="about-title">
+  <span class="ghost-word" style="left:-3%; bottom:2%;" aria-hidden="true">ABOUT</span>
+
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
+    <div class="sec-head rv">
+  <h2 id="about-title" class="sec-title">About</h2>
+  <span class="sticker sticker--cyan anim-wobble">who is this guy</span>
+</div>
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-[.8fr_1.2fr] items-start">
+
+      <div class="rv rv-slide mx-auto w-full max-w-[320px] lg:max-w-none">
+        <div class="photo-frame"
+style="transform:rotate(-2deg); background:var(--lime)"     data-photo-frame>
+  <picture>
+    <source type="image/webp" srcset="images/aryan-280.webp 280w, images/aryan-340.webp 340w, images/aryan-520.webp 520w, images/aryan-680.webp 680w" sizes="(min-width:1024px) 30vw, (min-width:640px) 320px, 88vw" />
+    <img src="images/aryan-680.jpg" srcset="images/aryan-280.jpg 280w, images/aryan-340.jpg 340w, images/aryan-520.jpg 520w, images/aryan-680.jpg 680w" sizes="(min-width:1024px) 30vw, (min-width:640px) 320px, 88vw"
+         alt="Aryan Gorde" width="1536" height="1920"
+loading="lazy" decoding="async" />
+  </picture>
+  <span class="photo-fallback" aria-hidden="true">AG</span>
+</div>
+        <div class="mt-5 flex flex-wrap gap-2.5 justify-center lg:justify-start"><span class="sticker">Open to roles</span><span class="sticker sticker--lime">Backend focus</span>        </div>
+      </div>
+
+      <div class="space-y-5">
+        <div class="glass card rv kinetic" data-frost>
+          <div class="flex justify-end -mt-1 mb-3"><span class="credit">glassmorphism, 2020</span></div>          <p class="text-[16px] sm:text-[17px] leading-relaxed">I'm a computer engineering student who wandered onto the server side and never left. The work I like has a correct answer buried in it somewhere — an amortisation schedule that has to balance, a retrieval pipeline that has to cite the document it actually used, a deploy that has to be repeatable.</p>          <p class="mt-4 text-[16px] sm:text-[17px] leading-relaxed">Most of what I ship is Django or FastAPI behind a small, sharp frontend. I'd rather spend the afternoon on the migration strategy than the hover state. (This page is what happens when I get to do both.)</p>        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">          <div class="neo card rv kinetic">            <div class="flex justify-between items-start gap-2">
+              <p class="eyebrow">Currently</p>
+              <span class="credit credit--light">neomorphism, 2019</span>
+            </div>            <p class="display mt-2" style="font-size:1.65rem">Computer<br />Engineering</p>
+          </div>          <div class="plate-violet card rv kinetic">            <p class="eyebrow">Building</p>            <p class="display mt-2" style="font-size:1.65rem">DebtClear</p>
+          </div>          <div class="plate-lime card rv kinetic">            <p class="eyebrow">Learning</p>            <p class="display mt-2" style="font-size:1.65rem">Distributed<br />Systems</p>
+          </div>          <div class="plate card rv kinetic">            <p class="eyebrow" style="color:var(--cyan)">Status</p>            <p class="display mt-2" style="font-size:1.65rem; color:var(--yellow)">Available</p>
+          </div>        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<hr class="rule" />
+<section id="stack" class="lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="stack-title"
+         style="background-color:var(--violet); background-image:repeating-linear-gradient(-45deg, rgba(0,0,0,.10) 0 16px, transparent 16px 32px)">
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
+    <div class="sec-head rv">
+  <h2 id="stack-title" class="sec-title" style="color:#fff">Stack</h2>
+  <span class="sticker sticker--lime anim-wobble">tools, not religion</span>
+</div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">      <div class="plate-w card rv kinetic">        <h3 class="display" style="font-size:1.75rem">Languages</h3>        <p class="mt-1 text-sm font-semibold">What I write day to day.</p>
+        <div class="mt-4"><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span><span class="tag">Bash</span>        </div>
+      </div>      <div class="plate card rv kinetic">        <h3 class="display" style="font-size:1.75rem; color:var(--yellow)">Backend</h3>        <p class="mt-1 text-sm font-semibold" style="color:var(--cyan)">Where most of the time goes.</p>
+        <div class="mt-4"><span class="tag tag--w">Django</span><span class="tag tag--w">DRF</span><span class="tag tag--w">FastAPI</span><span class="tag tag--w">Celery</span><span class="tag tag--w">Node.js</span>        </div>
+      </div>      <div class="plate-cyan card rv kinetic">        <h3 class="display" style="font-size:1.75rem">Data</h3>        <p class="mt-1 text-sm font-semibold">Storage, cache, and the queries between.</p>
+        <div class="mt-4"><span class="tag">PostgreSQL</span><span class="tag">MongoDB Atlas</span><span class="tag">Redis</span><span class="tag">SQLite</span>        </div>
+      </div>      <div class="plate-lime card rv kinetic">        <h3 class="display" style="font-size:1.75rem">Infra</h3>        <p class="mt-1 text-sm font-semibold">Off the laptop, and staying up.</p>
+        <div class="mt-4"><span class="tag">AWS EC2</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">Nginx</span><span class="tag">Gunicorn</span>        </div>
+      </div>      <div class="plate-pink card rv kinetic">        <h3 class="display" style="font-size:1.75rem">AI</h3>        <p class="mt-1 text-sm font-semibold">Used where it earns its latency.</p>
+        <div class="mt-4"><span class="tag tag--w">Llama 3.3 · Groq</span><span class="tag tag--w">Amazon Bedrock</span><span class="tag tag--w">Hybrid retrieval</span><span class="tag tag--w">Citations</span>        </div>
+      </div>      <div class="clay card rv kinetic">        <div class="flex justify-between items-start gap-2">
+          <h3 class="display" style="font-size:1.75rem">Frontend</h3>
+          <span class="credit credit--light">clay, 2021</span>
+        </div>        <p class="mt-1 text-sm font-semibold">Enough to ship the whole thing solo.</p>
+        <div class="mt-4"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">Chart.js</span><span class="tag">Vanilla JS</span>        </div>
+      </div>    </div>
+  </div>
+</section>
+
+<div class="marquee marquee--rev" aria-hidden="true">
+  <div class="marquee-track"><span>Shipped ✱</span><span>Tested ✱</span><span>Deployed ✱</span><span>Monitored ✱</span><span>Documented ✱</span><span>Still up ✱</span><span>Shipped ✱</span><span>Tested ✱</span><span>Deployed ✱</span><span>Monitored ✱</span><span>Documented ✱</span><span>Still up ✱</span>  </div>
+</div>
+<section id="debtclear" class="minimal lazy-paint" tabindex="-1" aria-labelledby="debtclear-title"
+         style="border-top:6px solid #000; border-bottom:6px solid #000">
+  <div class="mx-auto max-w-3xl px-5 sm:px-8 py-20 sm:py-32">
+
+    <div class="flex items-center justify-between gap-4 rv">
+      <p class="text-[11px] tracking-[0.24em] uppercase font-semibold minimal-accent">Featured build</p>
+      <span class="credit credit--light">minimalism, perennial</span>
+    </div>
+
+    <h2 id="debtclear-title" class="mt-10 rv"
+        style="font-size:clamp(2.75rem,9vw,5rem); font-weight:300; letter-spacing:-.03em; line-height:1.02">
+      DebtClear
+    </h2>
+
+    <p class="mt-8 rv" style="font-size:clamp(1.125rem,2.6vw,1.375rem); line-height:1.6; color:#2a2a28; max-width:38rem">
+      A Django debt-payoff planner. You enter what you owe; it simulates Avalanche and Snowball strategies side by side, charts the payoff curve, and an AI advisor explains the trade-off in the plain language a spreadsheet never will.
+    </p>
+
+    <div class="mt-20 grid gap-y-12 sm:grid-cols-2 sm:gap-x-14 rv">      <div>
+        <p class="minimal-accent" style="font-size:clamp(2rem,6vw,3.25rem); font-weight:300; letter-spacing:-.03em; line-height:1">2</p>
+        <p class="mt-3 text-sm leading-relaxed" style="color:#57574f">payoff strategies simulated in parallel — highest-interest-first and smallest-balance-first — so the cost of choosing motivation over maths is visible in rupees, not vibes.</p>
+      </div>      <div>
+        <p class="minimal-accent" style="font-size:clamp(2rem,6vw,3.25rem); font-weight:300; letter-spacing:-.03em; line-height:1">3.3</p>
+        <p class="mt-3 text-sm leading-relaxed" style="color:#57574f">Llama 3.3 via Groq powers the advisory layer. Groq's inference speed is what makes the advice feel like part of the form rather than a job you wait on.</p>
+      </div>    </div>
+
+    <hr class="hair mt-20" />
+
+    <dl class="mt-14 space-y-9 text-[15px] rv">      <div class="sm:grid sm:grid-cols-[9rem_1fr] sm:gap-8">
+        <dt class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#57574f">The problem</dt>
+        <dd class="mt-2 sm:mt-0 leading-relaxed" style="color:#2a2a28">Payoff calculators give you a number. They don't tell you what happens if you miss a month, or why the strategy that clears a card fastest can cost more overall.</dd>
+      </div>      <div class="sm:grid sm:grid-cols-[9rem_1fr] sm:gap-8">
+        <dt class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#57574f">The build</dt>
+        <dd class="mt-2 sm:mt-0 leading-relaxed" style="color:#2a2a28">Django and Django REST Framework, with amortisation running server-side so the numbers are computed once and identically for the chart, the table, and the advisor prompt. Chart.js renders the curve.</dd>
+      </div>      <div class="sm:grid sm:grid-cols-[9rem_1fr] sm:gap-8">
+        <dt class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#57574f">The AI part</dt>
+        <dd class="mt-2 sm:mt-0 leading-relaxed" style="color:#2a2a28">The model is given the computed schedule, never the raw inputs. It explains and compares; it never does the arithmetic. Money maths belongs in code you can unit-test.</dd>
+      </div>      <div class="sm:grid sm:grid-cols-[9rem_1fr] sm:gap-8">
+        <dt class="text-[11px] tracking-[0.18em] uppercase font-semibold" style="color:#57574f">Shipping</dt>
+        <dd class="mt-2 sm:mt-0 leading-relaxed" style="color:#2a2a28">Deployed on AWS EC2 behind Nginx and Gunicorn. GitHub Actions runs the test suite on every push and deploys <code>main</code> on green.</dd>
+      </div>    </dl>
+
+    <hr class="hair mt-14" />
+
+    <div class="mt-12 flex flex-wrap gap-8 text-[15px] rv">      <a class="font-medium" style="color:#121212; text-decoration:none; border-bottom:1px solid #a3005f; padding-bottom:2px"
+         href="https://debtclear.aryangorde.com/" rel="noopener">Open DebtClear <span aria-hidden="true">&#8599;</span></a>      <a class="font-medium" style="color:#121212; text-decoration:none; border-bottom:1px solid #a3005f; padding-bottom:2px"
+         href="https://github.com/aryangorde8/debtclear" rel="noopener">Read the source <span aria-hidden="true">&#8599;</span></a>    </div>
+  </div>
+</section>
+<section id="projects" class="lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="projects-title"
+         style="background-color:var(--cyan); background-image:radial-gradient(rgba(0,0,0,.18) 1.8px, transparent 1.9px); background-size:20px 20px">
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
+    <div class="sec-head rv">
+  <h2 id="projects-title" class="sec-title">Projects</h2>
+  <span class="sticker anim-wobble">all deployed</span>
+</div>
+
+    <div class="mt-8 grid gap-7 lg:grid-cols-3">      <article class="plate card rv kinetic flex flex-col">
+        <span class="sticker sticker--lime self-start">AI agent</span>
+        <h3 class="display mt-4" style="font-size:2.5rem; color:var(--yellow)">Mnemos</h3>
+        <p class="mt-3 text-[15px] leading-relaxed flex-1">An approval-gated assistant that pairs hybrid retrieval with a graph of prior context, cites every claim back to a source, and won't touch Gmail or Calendar until a human clicks approve.</p>
+        <p class="mt-4 text-xs font-bold tracking-widest uppercase" style="color:var(--cyan)">Python · FastAPI · MongoDB Atlas · Bedrock</p>
+        <div class="mt-5 flex flex-wrap gap-3">          <a class="btn btn--cyan"
+style="font-size:.95rem; padding:.6rem 1rem"   href="https://mnemos.aryangorde.com" rel="noopener" aria-label="Mnemos live demo">Live ↗</a>          <a class="btn btn--lime"
+style="font-size:.95rem; padding:.6rem 1rem"   href="https://github.com/aryangorde8/Mnemos" rel="noopener" aria-label="Mnemos source on GitHub">Source ↗</a>        </div>
+      </article>      <article class="plate-w card rv kinetic flex flex-col">
+        <span class="sticker sticker--violet self-start">Safety workflow</span>
+        <h3 class="display mt-4" style="font-size:2.5rem">MittiGuard</h3>
+        <p class="mt-3 text-[15px] leading-relaxed flex-1">Holds ambiguous farm-input sales pending until evidence is captured, reviewed, and written to an auditable trail. The real problem was making "wait" the cheap default and "approve" the deliberate act.</p>
+        <p class="mt-4 text-xs font-bold tracking-widest uppercase">Node.js · JavaScript · Bedrock · Docker</p>
+        <div class="mt-5 flex flex-wrap gap-3">          <a class="btn btn--pink"
+style="font-size:.95rem; padding:.6rem 1rem"   href="https://mittiguard.aryangorde.com/" rel="noopener" aria-label="MittiGuard live demo">Live ↗</a>          <a class="btn"
+style="font-size:.95rem; padding:.6rem 1rem"   href="https://github.com/aryangorde8/mittiguard" rel="noopener" aria-label="MittiGuard source on GitHub">Source ↗</a>        </div>
+      </article>      <article class="plate-pink card rv kinetic flex flex-col">
+        <span class="sticker sticker--cyan self-start">Personal finance</span>
+        <h3 class="display mt-4" style="font-size:2.5rem">Fintrack</h3>
+        <p class="mt-3 text-[15px] leading-relaxed flex-1">Expense tracking with category rules, recurring-transaction detection, and monthly rollups. Built to stop me rewriting the same spreadsheet formula every January.</p>
+        <p class="mt-4 text-xs font-bold tracking-widest uppercase">Python · Django · PostgreSQL · Chart.js</p>
+        <div class="mt-5 flex flex-wrap gap-3">          <a class="btn btn--cyan"
+style="font-size:.95rem; padding:.6rem 1rem"   href="https://github.com/aryangorde8" rel="noopener" aria-label="Fintrack source on GitHub">Source ↗</a>        </div>
+      </article>    </div>
+  </div>
+</section>
+
+<div class="marquee marquee--cyan marquee--fast" aria-hidden="true">
+  <div class="marquee-track"><span>2am commits ✱</span><span>no roadmap ✱</span><span>scope creep ✱</span><span>works on my machine ✱</span><span>ship it ✱</span><span>2am commits ✱</span><span>no roadmap ✱</span><span>scope creep ✱</span><span>works on my machine ✱</span><span>ship it ✱</span>  </div>
+</div>
+<section id="labs" class="lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="labs-title">
+  <span class="ghost-word" style="left:-4%; top:10%;" aria-hidden="true">LABS</span>
+
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
+    <div class="sec-head rv">
+  <h2 id="labs-title" class="sec-title">Labs</h2>
+  <span class="sticker sticker--violet anim-wobble">weekend damage</span>
+</div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2">      <article class="plate-w card rv kinetic">
+        <div class="flex flex-wrap items-start justify-between gap-3">
+          <h3 class="display" style="font-size:2rem">DevSync</h3>
+          <span class="sticker sticker--cyan">CLI</span>
+        </div>
+        <p class="mt-3 text-[15px] leading-relaxed">One command to pull every repo I have open, stash what's dirty, and print a single table of what's behind. Replaced a shell alias that had grown to nine lines.</p>
+        <p class="mt-3 text-xs font-bold tracking-widest uppercase">Python · Click · GitPython</p>
+      </article>      <article class="plate card rv kinetic">
+        <div class="flex flex-wrap items-start justify-between gap-3">
+          <h3 class="display" style="font-size:2rem; color:var(--yellow)">pg-slowlog</h3>
+          <span class="sticker sticker--lime">Tooling</span>
+        </div>
+        <p class="mt-3 text-[15px] leading-relaxed">Tails Postgres slow-query logs and groups them by normalised shape, so you find the query fired 4,000 times instead of the one that took 4 seconds once.</p>
+        <p class="mt-3 text-xs font-bold tracking-widest uppercase" style="color:var(--cyan)">Python · psycopg · Rich</p>
+      </article>      <article class="plate-lime card rv kinetic">
+        <div class="flex flex-wrap items-start justify-between gap-3">
+          <h3 class="display" style="font-size:2rem">Hotel Ledger</h3>
+          <span class="sticker">Coursework</span>
+        </div>
+        <p class="mt-3 text-[15px] leading-relaxed">A hotel management system from a systems module that I kept refactoring long after it was graded. Room allocation is a bin-packing problem and I refuse to let it go.</p>
+        <p class="mt-3 text-xs font-bold tracking-widest uppercase">Django · PostgreSQL</p>
+      </article>      <article class="plate-violet card rv kinetic">
+        <div class="flex flex-wrap items-start justify-between gap-3">
+          <h3 class="display" style="font-size:2rem">NLP Scratchpad</h3>
+          <span class="sticker sticker--cyan">Notebooks</span>
+        </div>
+        <p class="mt-3 text-[15px] leading-relaxed">Tokenisers, TF-IDF baselines, and a classifier that beat a fine-tuned model on a small dataset — the useful reminder that lives in every ML assignment.</p>
+        <p class="mt-3 text-xs font-bold tracking-widest uppercase">Python · scikit-learn · pandas</p>
+      </article>    </div>
+
+    <div class="mt-8 rv"><a class="btn btn--pink"
+   href="https://github.com/aryangorde8" rel="noopener">All of it on GitHub ↗</a></div>
+  </div>
+</section>
+
+<hr class="rule" />
+<section id="experience" class="brut lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="experience-title"
+         style="border-top:6px solid #000; border-bottom:6px solid #000; border-left:0; border-right:0">
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
+    <p class="brut-note rv" aria-hidden="true">&lt;!-- section id="experience" · no framework · no radius --&gt;</p>
+
+    <div class="sec-head rv mt-2">
+      <h2 id="experience-title" class="sec-title" style="font-family:var(--mono); font-size:clamp(2rem,6vw,3.5rem); letter-spacing:-.02em">Experience</h2>
+      <span class="credit credit--light">brutalism, 2018</span>
+    </div>
+
+    <div class="mt-6 overflow-x-auto rv" style="border:3px solid #000; background:#fff">
+      <table class="exp-table">
+        <caption class="sr-only">Work experience, most recent first</caption>
+        <thead>
+          <tr>
+            <th scope="col" style="width:9rem">Period</th>
+            <th scope="col" style="width:12rem">Role</th>
+            <th scope="col">What I actually did</th>
+          </tr>
+        </thead>
+        <tbody>          <tr>
+            <th scope="row" style="background:#fff; font-family:var(--mono); font-size:.85rem">2025 — now</th>
+            <td class="display" style="font-size:1.15rem">Independent Backend Developer</td>
+            <td>Designed, built, and deployed DebtClear end to end — data model, amortisation engine, REST API, AI advisory layer, and the EC2 + GitHub Actions pipeline that ships it.</td>
+          </tr>          <tr>
+            <th scope="row" style="font-family:var(--mono); font-size:.85rem">2025</th>
+            <td class="display" style="font-size:1.15rem">Hackathon Builds</td>
+            <td>Mnemos and MittiGuard — both agentic systems where the interesting constraint was refusing to act without evidence or human approval.</td>
+          </tr>          <tr>
+            <th scope="row" style="background:#fff; font-family:var(--mono); font-size:.85rem">2024 — 2025</th>
+            <td class="display" style="font-size:1.15rem">Academic Projects</td>
+            <td>Hotel management systems, machine-learning experiments, and NLP assignments, documented as if someone else would have to maintain them.</td>
+          </tr>        </tbody>
+      </table>
+    </div>
+    <p class="brut-note mt-2 rv" aria-hidden="true">&lt;!-- EDIT: replace rows above with real dates and employers --&gt;</p>
+
+    <div class="mt-7 grid gap-6 lg:grid-cols-2">
+      <div class="brut card rv" style="background:#fff">
+        <h3 style="font-family:var(--mono); font-size:1.5rem; font-weight:700; text-transform:uppercase">Education</h3>
+        <p class="mt-3 text-lg font-bold">B.E. Computer Engineering</p>
+        <p class="mt-1 text-sm">In progress</p>
+        <p class="mt-3 text-[15px] leading-relaxed">Computer-science fundamentals with a practical bias: data structures, operating systems, databases, and machine learning, applied to things that get deployed.</p>
+      </div>
+
+      <div class="brut card rv" style="background:#fff">
+        <h3 style="font-family:var(--mono); font-size:1.5rem; font-weight:700; text-transform:uppercase">Core skills</h3>
+        <ul class="mt-3 text-[15px] leading-relaxed space-y-2 list-none p-0 m-0">          <li><span aria-hidden="true">&gt; </span>Backend architecture — Django, DRF, FastAPI</li>          <li><span aria-hidden="true">&gt; </span>Relational data modelling and query tuning</li>          <li><span aria-hidden="true">&gt; </span>CI/CD and deployment — Actions, Docker, EC2</li>          <li><span aria-hidden="true">&gt; </span>LLM integration with hard correctness boundaries</li>          <li><span aria-hidden="true">&gt; </span>Writing docs a stranger can follow</li>        </ul>
+        <a class="mt-6 inline-block" style="border:3px solid #000; background:#fff; color:#000; padding:.7rem 1.1rem; font-family:var(--mono); font-weight:700; text-decoration:none"
+           href="/Aryan_Gorde_Resume.pdf">[ DOWNLOAD RÉSUMÉ.PDF ]</a>
+      </div>
+    </div>
+
+    <p class="brut-note mt-8 rv" aria-hidden="true">&lt;!-- /section --&gt;</p>
+  </div>
+</section>
+<section id="stats" class="lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="stats-title" style="background:#000">
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
+    <div class="sec-head rv">
+  <h2 id="stats-title" class="sec-title" style="color:var(--yellow)">Numbers</h2>
+  <span class="credit">bento grid, 2023</span>
+</div>
+
+    <div class="bento mt-8 rv">
+
+      <div class="plate-cyan card kinetic" style="grid-column:span 2; grid-row:span 2; display:flex; flex-direction:column; justify-content:space-between">
+        <p class="eyebrow">Featured build</p>
+        <div>
+          <p class="display" style="font-size:clamp(2.25rem,7vw,3.5rem)">DebtClear</p>
+          <p class="mt-2 text-sm font-bold" style="max-width:26rem">Django · Groq · EC2 · GitHub Actions. Deployed, tested, and live.</p>
+        </div>
+        <a class="mt-4 inline-flex w-fit items-center gap-2"
+           style="background:#000; color:var(--cyan); border:3px solid #000; padding:.55rem .9rem; font-family:var(--mono); font-weight:800; font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; text-decoration:none"
+           href="https://debtclear.aryangorde.com/" rel="noopener">Open it &#8599;</a>
+      </div>      <div class="plate-pink card kinetic">        <p class="stat-num"           data-count="3">3</p>
+        <p class="eyebrow mt-2">Deployed projects</p>      </div>      <div class="plate-lime card kinetic">        <p class="stat-num"           data-count="4" data-suffix="+">4+</p>
+        <p class="eyebrow mt-2">Years on Python</p>      </div>      <div class="plate-violet card kinetic" style="grid-column:span 2">        <p class="eyebrow">Automated deploys</p>
+        <div class="flex items-end justify-between gap-4">
+          <p class="stat-num mt-1"             data-count="100" data-suffix="%">100%</p>
+          <p class="text-sm font-bold" style="max-width:16rem; text-align:right">automated — push to main, tests, ship</p>
+        </div>      </div>      <div class="plate-w card kinetic">        <p class="stat-num"           data-count="1">1</p>
+        <p class="eyebrow mt-2">HTML file, zero builds</p>      </div>      <div class="plate card kinetic" style="grid-column:span 2">        <p class="eyebrow" style="color:var(--cyan)">Design eras borrowed from</p>
+        <div class="flex items-end justify-between gap-4">
+          <p class="stat-num mt-1" style="color:var(--yellow)"             data-count="9">9</p>
+          <p class="text-sm font-bold" style="max-width:16rem; text-align:right">one device each, dropped into a maximalist house style</p>
+        </div>      </div>
+      <div class="plate-cyan card kinetic">
+        <p class="eyebrow">Open to</p>
+        <p class="display mt-1" style="font-size:1.5rem">Backend<br />roles</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track"><span>Let's build something ✱</span><span>that has to work ✱</span><span>Let's build something ✱</span><span>that has to work ✱</span>  </div>
+</div>
+<section id="contact" class="spatial lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="contact-title"
+         style="background-color:var(--pink); background-image:repeating-linear-gradient(45deg, rgba(0,0,0,.10) 0 16px, transparent 16px 32px)">
+  <span class="ghost-word" style="right:-3%; bottom:-4%; -webkit-text-stroke-color:rgba(255,255,255,.22)" aria-hidden="true">HIRE</span>
+
+  <div class="depth-field" aria-hidden="true">    <span class="depth-layer depth-plane" data-depth="0.06" style="width:min(44vw,400px); height:min(28vw,240px); left:-6%; top:14%; transform:rotate(-8deg)"></span>    <span class="depth-layer depth-plane" data-depth="0.12" style="width:min(36vw,320px); height:min(24vw,210px); right:-5%; top:54%; transform:rotate(7deg)"></span>    <span class="depth-layer depth-dot" data-depth="0.19" style="width:14px; height:14px; left:16%; top:22%"></span>    <span class="depth-layer depth-dot" data-depth="0.27" style="width:9px;  height:9px;  left:76%; top:16%"></span>    <span class="depth-layer depth-dot" data-depth="0.15" style="width:18px; height:18px; left:62%; top:76%"></span>    <span class="depth-layer depth-dot" data-depth="0.23" style="width:11px; height:11px; left:30%; top:84%"></span>  </div>
+
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20" style="z-index:1">
+    <div class="sec-head rv">
+      <h2 id="contact-title" class="sec-title" style="color:#fff">Contact</h2>
+      <span class="sticker sticker--lime anim-pop">available now</span>
+      <span class="credit">spatial UI, 2024</span>
+    </div>
+
+    <div class="mt-8 grid gap-8 lg:grid-cols-[.65fr_1.35fr] items-start">
+
+      <div class="rv rv-slide mx-auto w-full max-w-[260px] lg:max-w-none">
+        <div class="photo-frame anim-float"
+style="transform:rotate(-3deg); background:var(--yellow)"     data-photo-frame>
+  <picture>
+    <source type="image/webp" srcset="images/aryan-280.webp 280w, images/aryan-340.webp 340w, images/aryan-520.webp 520w, images/aryan-680.webp 680w" sizes="(min-width:1024px) 22vw, 260px" />
+    <img src="images/aryan-680.jpg" srcset="images/aryan-280.jpg 280w, images/aryan-340.jpg 340w, images/aryan-520.jpg 520w, images/aryan-680.jpg 680w" sizes="(min-width:1024px) 22vw, 260px"
+         alt="Aryan Gorde" width="1536" height="1920"
+loading="lazy" decoding="async" />
+  </picture>
+  <span class="photo-fallback" aria-hidden="true">AG</span>
+</div>
+      </div>
+
+      <div class="space-y-5">
+        <div class="plate card rv">
+          <p class="display" style="font-size:clamp(1.6rem,4.5vw,2.5rem); color:var(--yellow)">Let's build something that has to work.</p>
+          <p class="mt-4 text-[16px] leading-relaxed">I'm after backend or full-stack work where the hard part is the system design, the data model, or keeping a deploy boring. If that's what you've got, I'd like to hear about it. Fastest route is email — I reply to everything that isn't a recruiter template.</p>
+          <div class="mt-6 flex flex-wrap gap-4">
+            <a class="btn btn--lime"
+   href="mailto:aryangorde8@gmail.com">aryangorde8@gmail.com</a>
+            <button type="button" class="btn btn--cyan" id="copy-email">Copy address</button>
+          </div>
+          <p id="copy-status" class="mt-3 text-sm font-bold" style="color:var(--lime)" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-3">          <a class="plate-cyan card rv kinetic" style="text-decoration:none; color:#000"
+             href="https://github.com/aryangorde8" rel="noopener">
+            <p class="display" style="font-size:1.5rem">GitHub ↗</p>
+            <p class="mt-1.5 text-sm font-bold">aryangorde8</p>
+          </a>          <a class="plate-w card rv kinetic" style="text-decoration:none; color:#000"
+             href="https://www.linkedin.com/in/aryan-gorde-6b660a264/" rel="noopener">
+            <p class="display" style="font-size:1.5rem">LinkedIn ↗</p>
+            <p class="mt-1.5 text-sm font-bold">the formal version</p>
+          </a>          <a class="plate-lime card rv kinetic" style="text-decoration:none; color:#000"
+             href="/Aryan_Gorde_Resume.pdf">
+            <p class="display" style="font-size:1.5rem">Résumé ⤓</p>
+            <p class="mt-1.5 text-sm font-bold">PDF, one page</p>
+          </a>        </div>
+      </div>
+
+    </div>
+  </div>
+</section></main>
+
+<footer class="footer">
+  <div class="mx-auto max-w-site px-4 sm:px-6 py-10">
+    <p class="display" style="font-size:2rem; color:var(--yellow)">Aryan Gorde</p>
+    <p class="mt-3 text-sm leading-relaxed" style="max-width:62ch">
+      One HTML file, generated by a Python build — Jinja2 templates, content as Python
+      data, and a Pillow image pipeline. No CDN, no runtime dependencies, no build
+      artefacts in the browser. Loud on the outside, tested on the inside.
+    </p>
+
+    <p class="mt-5 text-sm" style="max-width:62ch">
+      Maximalism is the house style. Nine devices are quoted from other design eras and
+      labelled where they appear:
+skeuomorphism, neomorphism, glassmorphism, claymorphism, minimalism, brutalism, liquid glass, bento grid, spatial UI.
+    </p>
+
+    <p class="mt-5 text-sm">
+      © <span id="year">2026</span> ·
+      <a href="mailto:aryangorde8@gmail.com">Email</a> ·
+      <a href="https://github.com/aryangorde8" rel="noopener">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/aryan-gorde-6b660a264/" rel="noopener">LinkedIn</a>
+    </p>
+  </div>
+</footer>
+<script>
+/* ==========================================================================
+   Progressive enhancement only. Delete this whole block and you still have a
+   complete, readable, navigable page — you just lose motion and the counters.
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var root = document.documentElement;
+  var supportsIO = "IntersectionObserver" in window;
+
+  /* ---- 1. Motion gate ---------------------------------------------------
+     prefers-reduced-motion is the source of truth; the button overrides it in
+     either direction and the choice persists. It also serves as the pause
+     control for the looping marquees (WCAG 2.2.2). */
+  var mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var stored = null;
+  try { stored = localStorage.getItem("motion"); } catch (e) {}
+
+  function applyMotion(mode) {
+    root.setAttribute("data-motion", mode);
+    root.classList.toggle("reveal-armed", mode === "full" && supportsIO);
+    document.querySelectorAll("[data-motion-toggle]").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", mode === "reduced" ? "true" : "false");
+    });
+  }
+
+  var motionMode = stored || (mq.matches ? "reduced" : "full");
+  applyMotion(motionMode);
+
+  if (mq.addEventListener) {
+    mq.addEventListener("change", function (e) {
+      if (stored) return;                        // an explicit choice wins
+      motionMode = e.matches ? "reduced" : "full";
+      applyMotion(motionMode);
+    });
+  }
+
+  document.querySelectorAll("[data-motion-toggle]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      motionMode = motionMode === "full" ? "reduced" : "full";
+      stored = motionMode;
+      try { localStorage.setItem("motion", motionMode); } catch (e) {}
+      applyMotion(motionMode);
+    });
+  });
+
+  /* ---- 2. Photo fallback ------------------------------------------------
+     If images/aryan.jpg isn't there yet, show an initials tile instead of a
+     broken-image icon. Self-disables once the file exists. */
+  document.querySelectorAll("[data-photo-frame] img").forEach(function (img) {
+    function fail() { img.closest("[data-photo-frame]").classList.add("is-missing"); }
+    img.addEventListener("error", fail);
+    if (img.complete && img.naturalWidth === 0) fail();
+  });
+
+  /* ---- 3. Scroll reveal -------------------------------------------------- */
+  if (supportsIO) {
+    var revealObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("rv-in");
+        obs.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -6% 0px", threshold: 0.04 });
+    document.querySelectorAll(".rv").forEach(function (el) { revealObserver.observe(el); });
+
+    // Failsafe: on a healthy page the above-the-fold items reveal instantly.
+    // If nothing has after 3s the observer isn't delivering, so disarm rather
+    // than leave the page stranded at opacity 0.
+    setTimeout(function () {
+      if (!document.querySelector(".rv.rv-in")) root.classList.remove("reveal-armed");
+    }, 3000);
+  }
+
+  /* ---- 4. Nav scroll spy -------------------------------------------------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-link"));
+  var sections = navLinks
+    .map(function (l) { return document.getElementById(l.getAttribute("data-nav")); })
+    .filter(Boolean);
+
+  if (supportsIO && sections.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(function (l) {
+          l.setAttribute("aria-current", l.getAttribute("data-nav") === entry.target.id ? "true" : "false");
         });
-      }
-    </script>
-  </body>
+      });
+    }, { rootMargin: "-45% 0px -45% 0px" });
+    sections.forEach(function (s) { spy.observe(s); });
+  }
+
+  /* ---- 5. Stat counters --------------------------------------------------
+     Count up once, on reveal, and only when motion is on. The final value is
+     already in the HTML, so this never invents or hides a number. */
+  if (supportsIO) {
+    var countObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        obs.unobserve(entry.target);
+        if (root.getAttribute("data-motion") !== "full") return;
+
+        var el = entry.target;
+        var target = parseInt(el.getAttribute("data-count"), 10);
+        var suffix = el.getAttribute("data-suffix") || "";
+        if (isNaN(target)) return;
+
+        var started = null, dur = 900;
+        function step(ts) {
+          if (started === null) started = ts;
+          var p = Math.min((ts - started) / dur, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        el.textContent = "0" + suffix;
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll("[data-count]").forEach(function (el) { countObserver.observe(el); });
+  }
+
+  /* ---- 5b. Frost activation ----------------------------------------------
+     backdrop-filter is the most expensive thing on this page. Switch it on
+     only for the borrowed glass/liquid-glass panels while they're near the
+     viewport, so offscreen blur never costs a frame. */
+  if (supportsIO) {
+    var frostObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle("is-live", entry.isIntersecting);
+      });
+    }, { rootMargin: "250px 0px 250px 0px" });
+    document.querySelectorAll("[data-frost]").forEach(function (el) { frostObserver.observe(el); });
+  } else {
+    document.querySelectorAll("[data-frost]").forEach(function (el) { el.classList.add("is-live"); });
+  }
+
+  /* ---- 5c. Spatial parallax ----------------------------------------------
+     Borrowed from spatial UI, for the contact section only. Motion-gated and
+     fine-pointer-gated: a phone has no hover and doesn't need the cost.
+     Transform-only, batched into one rAF per scroll event. */
+  var finePointer = window.matchMedia("(pointer: fine)").matches;
+  var spatial = document.getElementById("contact");
+  var depthLayers = spatial
+    ? Array.prototype.slice.call(spatial.querySelectorAll("[data-depth]"))
+    : [];
+  var pointerX = 0, pointerY = 0, ticking = false;
+
+  function parallaxOn() {
+    return root.getAttribute("data-motion") === "full" && finePointer && depthLayers.length > 0;
+  }
+
+  function updateParallax() {
+    if (!parallaxOn()) return;
+    var rect = spatial.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+
+    // -1 entering from below, +1 leaving above
+    var progress = 1 - (rect.top + rect.height / 2) / (window.innerHeight / 2 + rect.height / 2);
+
+    depthLayers.forEach(function (layer) {
+      var d = parseFloat(layer.getAttribute("data-depth")) || 0;
+      var y = progress * d * -170;
+      var x = pointerX * d * 36;
+      var ry = pointerX * d * 10;
+      var rx = pointerY * d * -7;
+      layer.style.transform =
+        "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0)" +
+        " rotateY(" + ry.toFixed(2) + "deg) rotateX(" + rx.toFixed(2) + "deg)";
+    });
+  }
+
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { updateParallax(); ticking = false; });
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  if (spatial) {
+    spatial.addEventListener("pointermove", function (e) {
+      if (!parallaxOn()) return;
+      var r = spatial.getBoundingClientRect();
+      pointerX = (e.clientX - r.left) / r.width * 2 - 1;
+      pointerY = (e.clientY - r.top) / r.height * 2 - 1;
+      onScroll();
+    }, { passive: true });
+
+    spatial.addEventListener("pointerleave", function () {
+      pointerX = 0; pointerY = 0; onScroll();
+    }, { passive: true });
+  }
+
+  /* ---- 6. Copy email ------------------------------------------------------ */
+  var copyBtn = document.getElementById("copy-email");
+  var copyStatus = document.getElementById("copy-status");
+  if (copyBtn && navigator.clipboard) {
+    copyBtn.addEventListener("click", function () {
+      navigator.clipboard.writeText("aryangorde8@gmail.com").then(function () {
+        if (copyStatus) copyStatus.textContent = "Copied to clipboard.";
+      }).catch(function () {
+        if (copyStatus) copyStatus.textContent = "Couldn't copy — it's aryangorde8@gmail.com";
+      });
+    });
+  } else if (copyBtn) {
+    copyBtn.hidden = true;
+  }
+
+  /* ---- 7. Housekeeping ----------------------------------------------------- */
+  var yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ---- 8. Retire the old service worker ------------------------------------
+     The previous build was a React bundle and sw.js cached /assets/*, which no
+     longer exists. Left registered, returning visitors can be served the old
+     app from cache. Delete this block if you reintroduce a service worker. */
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function (regs) {
+      regs.forEach(function (r) { r.unregister(); });
+    }).catch(function () {});
+    if (window.caches && caches.keys) {
+      caches.keys().then(function (keys) {
+        keys.forEach(function (k) { caches.delete(k); });
+      }).catch(function () {});
+    }
+  }
+})();
+
+</script>
+
+</body>
 </html>
-<!-- rebuild trigger -->

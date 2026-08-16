@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ site.title }}</title>
+<meta name="description" content="{{ site.description }}" />
+<meta name="theme-color" content="#ffe500" />
+<meta name="color-scheme" content="only light" />
+<link rel="canonical" href="{{ site.domain }}/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{ site.title }}" />
+<meta property="og:description" content="{{ site.og_description }}" />
+<meta property="og:url" content="{{ site.domain }}/" />
+<meta property="og:image" content="{{ site.domain }}/{{ photo.og }}" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!--
+  ============================================================================
+  GENERATED FILE — DO NOT EDIT BY HAND.
+
+  Built by build.py from build_src/. Your edits here will be overwritten on
+  the next build. Edit these instead:
+
+     build_src/content.py            all the words
+     build_src/templates/            the markup
+     build_src/static/css/site.css   the design system
+     build_src/static/js/site.js     the behaviour
+
+  Then run:  python3 build.py
+
+  {{ stats_meta.sections }} sections · zero external dependencies (CSS and JS
+  are inlined below; no CDN, no fonts, no runtime).
+
+  This output is deterministic: same sources in, byte-identical file out. No
+  build timestamp is embedded, deliberately — it would make `--check` flaky and
+  produce a spurious git diff on every rebuild.
+
+  DESIGN: maximalism is the house style. Nine devices are quoted from other
+  eras, each labelled on-page with a credit chip:
+{%- for era, year, where, what in borrowed %}
+     {{ '%-14s'|format(era) }} {{ '%-6s'|format(year) }} {{ '%-20s'|format(where) }} {{ what }}
+{%- endfor %}
+
+  COLOUR CONTRACT: every run of text sits on an opaque plate. Accents are only
+  used at AA-safe pairings — see the table at the top of the CSS.
+  ============================================================================
+-->
+
+<style>
+{{ css }}
+</style>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+{% include "sections/nav.html.j2" %}
+
+<main id="main" tabindex="-1">
+{% block content %}{% endblock %}
+</main>
+
+{% include "sections/footer.html.j2" %}
+
+<script>
+{{ js }}
+</script>
+
+</body>
+</html>

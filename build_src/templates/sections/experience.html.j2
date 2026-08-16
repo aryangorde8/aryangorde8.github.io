@@ -1,0 +1,65 @@
+{% import "macros.html.j2" as m %}
+
+{# ===========================================================================
+   Borrowed: BRUTALISM. Building materials left exposed — monospace, hard 3px
+   rules, no radius, no shadow, and the page's own structure printed on the
+   page as ornament. Experience is the most-scanned section on any portfolio,
+   so raw tabular honesty is the functional choice here, not just a stylistic
+   one.
+   =========================================================================== #}
+<section id="experience" class="brut lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="experience-title"
+         style="border-top:6px solid #000; border-bottom:6px solid #000; border-left:0; border-right:0">
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
+    <p class="brut-note rv" aria-hidden="true">&lt;!-- section id="experience" · no framework · no radius --&gt;</p>
+
+    <div class="sec-head rv mt-2">
+      <h2 id="experience-title" class="sec-title" style="font-family:var(--mono); font-size:clamp(2rem,6vw,3.5rem); letter-spacing:-.02em">Experience</h2>
+      {{ m.credit('brutalism, 2018', light=true) }}
+    </div>
+
+    <div class="mt-6 overflow-x-auto rv" style="border:3px solid #000; background:#fff">
+      <table class="exp-table">
+        <caption class="sr-only">Work experience, most recent first</caption>
+        <thead>
+          <tr>
+            <th scope="col" style="width:9rem">Period</th>
+            <th scope="col" style="width:12rem">Role</th>
+            <th scope="col">What I actually did</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for job in experience %}
+          <tr>
+            <th scope="row" style="{% if loop.index is odd %}background:#fff; {% endif %}font-family:var(--mono); font-size:.85rem">{{ job.period }}</th>
+            <td class="display" style="font-size:1.15rem">{{ job.role }}</td>
+            <td>{{ job.detail }}</td>
+          </tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="brut-note mt-2 rv" aria-hidden="true">&lt;!-- EDIT: replace rows above with real dates and employers --&gt;</p>
+
+    <div class="mt-7 grid gap-6 lg:grid-cols-2">
+      <div class="brut card rv" style="background:#fff">
+        <h3 style="font-family:var(--mono); font-size:1.5rem; font-weight:700; text-transform:uppercase">Education</h3>
+        <p class="mt-3 text-lg font-bold">{{ education.degree }}</p>
+        <p class="mt-1 text-sm">{{ education.status }}</p>
+        <p class="mt-3 text-[15px] leading-relaxed">{{ education.detail }}</p>
+      </div>
+
+      <div class="brut card rv" style="background:#fff">
+        <h3 style="font-family:var(--mono); font-size:1.5rem; font-weight:700; text-transform:uppercase">Core skills</h3>
+        <ul class="mt-3 text-[15px] leading-relaxed space-y-2 list-none p-0 m-0">
+          {%- for skill in skills %}
+          <li><span aria-hidden="true">&gt; </span>{{ skill }}</li>
+          {%- endfor %}
+        </ul>
+        <a class="mt-6 inline-block" style="border:3px solid #000; background:#fff; color:#000; padding:.7rem 1.1rem; font-family:var(--mono); font-weight:700; text-decoration:none"
+           href="{{ site.resume }}">[ DOWNLOAD RÉSUMÉ.PDF ]</a>
+      </div>
+    </div>
+
+    <p class="brut-note mt-8 rv" aria-hidden="true">&lt;!-- /section --&gt;</p>
+  </div>
+</section>

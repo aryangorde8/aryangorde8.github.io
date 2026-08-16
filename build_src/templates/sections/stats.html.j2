@@ -1,0 +1,54 @@
+{% import "macros.html.j2" as m %}
+
+<section id="stats" class="lazy-paint relative overflow-hidden" tabindex="-1" aria-labelledby="stats-title" style="background:#000">
+  <div class="relative mx-auto max-w-site px-4 sm:px-6 py-14 sm:py-20">
+    {{ m.sec_head('stats', 'Numbers', m.credit('bento grid, 2023'), color='var(--yellow)') }}
+
+    {# Borrowed: BENTO GRID. Not a texture but a layout doctrine — uniform
+       gutters and radii, deliberately unequal tiles. Size is the only
+       hierarchy signal, so the featured build gets 2x2 and single facts get
+       one cell. The mobile collapse is handled in CSS, so `span` values here
+       only ever apply from 1000px up. #}
+    <div class="bento mt-8 rv">
+
+      <div class="plate-cyan card kinetic" style="grid-column:span 2; grid-row:span 2; display:flex; flex-direction:column; justify-content:space-between">
+        <p class="eyebrow">{{ stats_feature.label }}</p>
+        <div>
+          <p class="display" style="font-size:clamp(2.25rem,7vw,3.5rem)">{{ stats_feature.name }}</p>
+          <p class="mt-2 text-sm font-bold" style="max-width:26rem">{{ stats_feature.note }}</p>
+        </div>
+        <a class="mt-4 inline-flex w-fit items-center gap-2"
+           style="background:#000; color:var(--cyan); border:3px solid #000; padding:.55rem .9rem; font-family:var(--mono); font-weight:800; font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; text-decoration:none"
+           href="{{ stats_feature.href }}" rel="noopener">{{ stats_feature.cta }} &#8599;</a>
+      </div>
+
+      {%- for stat in stats %}
+      {%- set dark = stat.accent in m.DARK %}
+      {%- set head = m.HEAD_INK.get(stat.accent) %}
+      {%- set muted = m.MUTED_INK.get(stat.accent) %}
+      <div class="{{ m.plate(stat.accent) }} card kinetic"{% if stat.span > 1 %} style="grid-column:span {{ stat.span }}"{% endif %}>
+        {%- if stat.get('note') %}
+        <p class="eyebrow"{% if muted %} style="color:{{ muted }}"{% endif %}>{{ stat.label }}</p>
+        <div class="flex items-end justify-between gap-4">
+          <p class="stat-num mt-1"{% if head %} style="color:{{ head }}"{% endif %}
+             data-count="{{ stat.value }}"{% if stat.suffix %} data-suffix="{{ stat.suffix }}"{% endif %}>{{ stat.value }}{{ stat.suffix }}</p>
+          <p class="text-sm font-bold" style="max-width:16rem; text-align:right">{{ stat.get('note') }}</p>
+        </div>
+        {%- else %}
+        <p class="stat-num"{% if head %} style="color:{{ head }}"{% endif %}
+           data-count="{{ stat.value }}"{% if stat.suffix %} data-suffix="{{ stat.suffix }}"{% endif %}>{{ stat.value }}{{ stat.suffix }}</p>
+        <p class="eyebrow mt-2"{% if muted %} style="color:{{ muted }}"{% endif %}>{{ stat.label }}</p>
+        {%- endif %}
+      </div>
+      {%- endfor %}
+
+      <div class="plate-cyan card kinetic">
+        <p class="eyebrow">Open to</p>
+        <p class="display mt-1" style="font-size:1.5rem">Backend<br />roles</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{ m.marquee(marquees.contact) }}
